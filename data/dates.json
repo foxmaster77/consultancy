@@ -1,0 +1,46 @@
+[
+  {
+    "id": "wbjee",
+    "name": "WBJEE",
+    "official_name": "West Bengal Joint Entrance Examinations Board",
+    "official_url": "https://wbjeeb.nic.in/",
+    "milestones": [
+      { "label": "Application window", "when": null },
+      { "label": "Examination", "when": null },
+      { "label": "Counselling", "when": null }
+    ]
+  },
+  {
+    "id": "jee-main",
+    "name": "JEE Main",
+    "official_name": "National Testing Agency",
+    "official_url": "https://jeemain.nta.nic.in/",
+    "milestones": [
+      { "label": "Application window", "when": null },
+      { "label": "Examination", "when": null },
+      { "label": "Result", "when": null }
+    ]
+  },
+  {
+    "id": "neet-ug",
+    "name": "NEET UG",
+    "official_name": "National Testing Agency",
+    "official_url": "https://neet.nta.nic.in/",
+    "milestones": [
+      { "label": "Application window", "when": null },
+      { "label": "Examination", "when": null },
+      { "label": "Counselling", "when": null }
+    ]
+  },
+  {
+    "id": "cuet",
+    "name": "CUET",
+    "official_name": "National Testing Agency",
+    "official_url": "https://cuet.nta.nic.in/",
+    "milestones": [
+      { "label": "Application window", "when": null },
+      { "label": "Examination", "when": null },
+      { "label": "Result", "when": null }
+    ]
+  }
+]

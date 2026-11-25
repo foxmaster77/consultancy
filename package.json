@@ -1,0 +1,13 @@
+{
+  "name": "chatterjee-admissions",
+  "private": true,
+  "scripts": {
+    "build": "tsc --noEmit && tsx scripts/test-enquiry.ts && node scripts/guard-copy.js",
+    "check-data": "tsx scripts/check-data.ts"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.1",
+    "tsx": "4.19.2",
+    "typescript": "5.6.3"
+  }
+}

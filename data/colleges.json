@@ -1,0 +1,1043 @@
+[
+  {
+    "id": "hit",
+    "name": "Heritage Institute of Technology",
+    "shortName": "HIT Kolkata",
+    "area": "Anandapur, East Kolkata",
+    "stream": "eng",
+    "streamLabel": "Engineering & Tech",
+    "accreditation": "NAAC A (3.13 CGPA)",
+    "affiliation": "Autonomous · MAKAUT & AICTE Approved",
+    "examRoute": "WBJEE / JEE Main",
+    "estYear": "Est. 2001",
+    "commute": "Hemanta Mukherjee (Ruby) Metro (2.5 km) · 35m from Sealdah",
+    "photo": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "Computer Science & Engineering (CSE)"
+      },
+      {
+        "name": "CSE (AI & Machine Learning)"
+      },
+      {
+        "name": "Computer Science & Business Systems (CSBS)"
+      },
+      {
+        "name": "Information Technology (IT)"
+      },
+      {
+        "name": "Electronics & Communication (ECE)"
+      },
+      {
+        "name": "Electrical Engineering (EE)"
+      },
+      {
+        "name": "Mechanical / Chemical / Civil"
+      }
+    ],
+    "highlights": [
+      "Advanced Robotic Automation & AI Center of Excellence sponsored by DST"
+    ],
+    "recruiters": [
+      "Amazon",
+      "Adobe",
+      "TCS Digital",
+      "Cognizant",
+      "Infosys",
+      "IBM",
+      "Wipro",
+      "ITC Infotech"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "iem",
+    "name": "Institute of Engineering & Management",
+    "shortName": "IEM Salt Lake",
+    "area": "Sector V, Salt Lake, Kolkata",
+    "stream": "eng",
+    "streamLabel": "Engineering & Tech",
+    "accreditation": "NAAC A Grade",
+    "affiliation": "Autonomous · MAKAUT · AICTE Approved",
+    "examRoute": "WBJEE / JEE Main / IEMJEE Entrance",
+    "estYear": "Est. 1989",
+    "commute": "Salt Lake Sector V Metro (800m) · Direct AC Bus Route",
+    "photo": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "Computer Science & Engineering (CSE)"
+      },
+      {
+        "name": "CSE (Artificial Intelligence)"
+      },
+      {
+        "name": "Information Technology (IT)"
+      },
+      {
+        "name": "Electronics & Communication (ECE)"
+      },
+      {
+        "name": "Electrical & Electronics (EEE)"
+      },
+      {
+        "name": "Mechanical Engineering"
+      }
+    ],
+    "highlights": [
+      "Dual degree and academic credit partnerships with foreign universities in USA and Canada",
+      "Students regularly qualify for Google Summer of Code and ACM-ICPC World Finals"
+    ],
+    "recruiters": [
+      "Google",
+      "Microsoft",
+      "Oracle",
+      "Capgemini",
+      "TCS",
+      "PwC",
+      "Cognizant",
+      "Amazon"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "tiu",
+    "name": "Techno India University",
+    "shortName": "TIU Kolkata",
+    "area": "Sector V, Salt Lake, Kolkata",
+    "stream": "eng",
+    "streamLabel": "Engineering & Tech",
+    "accreditation": "UGC Recognized State Univ",
+    "affiliation": "Techno India Group · UGC Act 2(f) · AICTE Approved",
+    "examRoute": "WBJEE / JEE Main / TNJEE (Direct Merit)",
+    "estYear": "Est. 2012",
+    "commute": "Salt Lake Sector V Metro (600m) · EM Bypass corridor",
+    "photo": "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "B.Tech Computer Science & Engg"
+      },
+      {
+        "name": "B.Tech CSE (Data Science & AI)"
+      },
+      {
+        "name": "B.Tech Electronics & Comm"
+      },
+      {
+        "name": "B.Tech Biotechnology"
+      },
+      {
+        "name": "B.Tech Civil / Mechanical"
+      }
+    ],
+    "highlights": [
+      "High-rise modern tech campus in the heart of Kolkata’s IT corridor (Sector V)",
+      "Official Google Cloud, Intel, and SAP Next-Gen academic partnership center",
+      "Active entrepreneurship and startup incubator with government seed funding"
+    ],
+    "recruiters": [
+      "Microsoft",
+      "Amazon",
+      "Deloitte",
+      "Accenture",
+      "Tech Mahindra",
+      "Wipro",
+      "SAP Labs"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "tint",
+    "name": "Techno International New Town",
+    "shortName": "TINT New Town",
+    "area": "Action Area I, New Town, Kolkata",
+    "stream": "eng",
+    "streamLabel": "Engineering & Tech",
+    "accreditation": "NAAC Accredited",
+    "affiliation": "MAKAUT & AICTE Approved",
+    "examRoute": "WBJEE / JEE Main Counselling",
+    "estYear": "Est. 2005",
+    "commute": "New Town Ecospace bus terminal · 15m from Airport",
+    "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "Computer Science & Engineering"
+      },
+      {
+        "name": "CSE (Cyber Security)"
+      },
+      {
+        "name": "Information Technology"
+      },
+      {
+        "name": "Electronics & Communication"
+      },
+      {
+        "name": "Electrical Engineering"
+      }
+    ],
+    "highlights": [
+      "NBA accredited Computer Science & Engineering and Electronics departments",
+      "Strategic proximity to TCS Geetanjali Park, Wipro, and Infosys New Town campus",
+      "High participation in national hackathons with Smart India Hackathon finalist teams",
+      "State-of-the-art IoT and Embedded Systems experimental laboratory"
+    ],
+    "recruiters": [
+      "TCS",
+      "Cognizant",
+      "Infosys",
+      "EY",
+      "LTIMindtree",
+      "Ericsson",
+      "Persistent"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "nsec",
+    "name": "Netaji Subhash Engineering College",
+    "shortName": "NSEC Garia",
+    "area": "Techno City, Garia, Kolkata",
+    "stream": "eng",
+    "streamLabel": "Engineering & Tech",
+    "accreditation": "NAAC Accredited",
+    "affiliation": "MAKAUT & AICTE Approved · NBA Accredited",
+    "examRoute": "WBJEE / JEE Main",
+    "estYear": "Est. 1998",
+    "commute": "Kavi Subhash Metro & Garia Station (1.8 km)",
+    "photo": "https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "Computer Science & Engineering"
+      },
+      {
+        "name": "CSE (AI & Machine Learning)"
+      },
+      {
+        "name": "Information Technology"
+      },
+      {
+        "name": "Biomedical Engineering"
+      },
+      {
+        "name": "Electronics & Communication"
+      }
+    ],
+    "highlights": [
+      "Pioneer in Biomedical Engineering and Applied Electronics in Eastern India",
+      "Active IEEE Student Branch with published research in IEEE Xplore journals"
+    ],
+    "recruiters": [
+      "Cognizant",
+      "TCS",
+      "Infosys",
+      "Wipro",
+      "Mindtree",
+      "Johnson Controls",
+      "Hexaware"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "nit-agarpara",
+    "name": "Narula Institute of Technology",
+    "shortName": "NIT Agarpara",
+    "area": "Nilgunj Road, Agarpara, Kolkata",
+    "stream": "eng",
+    "streamLabel": "Engineering & Tech",
+    "accreditation": "NAAC A Grade",
+    "affiliation": "Autonomous · JIS Group · MAKAUT & AICTE",
+    "examRoute": "WBJEE / JEE Main / JIS Group Entrance",
+    "estYear": "Est. 2001",
+    "commute": "Agarpara Railway Station (1 km) · Baranagar Metro (15m)",
+    "photo": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "Computer Science & Engineering"
+      },
+      {
+        "name": "CSE (AI & Machine Learning)"
+      },
+      {
+        "name": "Information Technology"
+      },
+      {
+        "name": "Electronics & Communication"
+      },
+      {
+        "name": "Civil / Electrical / Mechanical"
+      }
+    ],
+    "highlights": [
+      "Conferred Autonomous status by University Grants Commission (UGC)",
+      "World Bank TEQIP-II sponsored institution for upgraded laboratories and faculty research",
+      "Recognized research center for Ph.D. programs under MAKAUT",
+      "Renowned for VLSI Design, Renewable Power, and Structural Engineering testing"
+    ],
+    "recruiters": [
+      "Accenture",
+      "TCS",
+      "Cognizant",
+      "Capgemini",
+      "Zensar",
+      "ITC Infotech",
+      "Wipro"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "hit-haldia",
+    "name": "Haldia Institute of Technology",
+    "shortName": "HIT Haldia",
+    "area": "Haldia Port City (Direct Kolkata Desk)",
+    "stream": "eng",
+    "streamLabel": "Engineering & Tech",
+    "accreditation": "NAAC A Grade",
+    "affiliation": "Autonomous · MAKAUT & AICTE Approved",
+    "examRoute": "WBJEE / JEE Main Counselling",
+    "estYear": "Est. 1996",
+    "commute": "2.5 hrs AC Bus from Esplanade / Direct Local Express",
+    "photo": "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "Computer Science & Engineering"
+      },
+      {
+        "name": "Chemical Engineering (Top in WB)"
+      },
+      {
+        "name": "Mechanical Engineering"
+      },
+      {
+        "name": "Electronics & Communication"
+      },
+      {
+        "name": "Civil Engineering"
+      }
+    ],
+    "highlights": [],
+    "recruiters": [
+      "Haldia Petrochemicals",
+      "Indian Oil",
+      "PwC",
+      "Infosys",
+      "Wipro",
+      "TCS",
+      "Tata Power"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "fiem",
+    "name": "Future Institute of Engineering and Management",
+    "shortName": "FIEM Sonarpur",
+    "area": "Sonarpur Station Road, South Kolkata",
+    "stream": "eng",
+    "streamLabel": "Engineering & Tech",
+    "accreditation": "NAAC Accredited",
+    "affiliation": "MAKAUT & AICTE Approved",
+    "examRoute": "WBJEE / JEE Main",
+    "estYear": "Est. 2001",
+    "commute": "Sonarpur Local Station (500m) · Kavi Subhash Metro (15m)",
+    "photo": "https://images.unsplash.com/photo-1568792923760-d70635a89fa9?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "Computer Science & Engineering"
+      },
+      {
+        "name": "Information Technology"
+      },
+      {
+        "name": "Electronics & Communication"
+      },
+      {
+        "name": "Electrical / Mechanical"
+      }
+    ],
+    "highlights": [
+      "Specialized wings in Media Sciences, Management Studies, and Computer Engineering",
+      "Active corporate interaction cell providing early summer internships"
+    ],
+    "recruiters": [
+      "Cognizant",
+      "Infosys",
+      "Capgemini",
+      "Wipro",
+      "Mindtree",
+      "Tech Mahindra"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "kpc",
+    "name": "KPC Medical College & Hospital",
+    "shortName": "KPC Medical Jadavpur",
+    "area": "Raja S.C. Mallick Road, Jadavpur, Kolkata",
+    "stream": "med",
+    "streamLabel": "Medical & Healthcare",
+    "accreditation": "NMC Approved Medical College",
+    "affiliation": "WBUHS (West Bengal Univ of Health Sciences) · NMC Approved",
+    "examRoute": "NEET UG",
+    "estYear": "Est. 2006",
+    "commute": "Jadavpur Railway Station (600m) · Kavi Nazrul Metro (10m)",
+    "photo": "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "MBBS (State Quota"
+      },
+      {
+        "name": "MBBS (Management Quota"
+      },
+      {
+        "name": "MBBS (NRI Quota"
+      }
+    ],
+    "highlights": [
+      "Full accreditation for Postgraduate MD/MS clinical residency disciplines",
+      "Advanced Critical Care, Dialysis, Neonatal ICU (NICU), and Cardiac Cath Lab units"
+    ],
+    "recruiters": [
+      "Apollo Multispeciality",
+      "Fortis Kolkata",
+      "AMRI Hospitals",
+      "Peerless",
+      "Medica Superspecialty"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "jimsh",
+    "name": "Jagannath Gupta Institute of Medical Sciences",
+    "shortName": "JIMSH Budge Budge",
+    "area": "Budge Budge, South 24 Parganas, Kolkata Met.",
+    "stream": "med",
+    "streamLabel": "Medical & Healthcare",
+    "accreditation": "NABH Accredited Hospital · NMC",
+    "affiliation": "WBUHS & National Medical Commission (NMC) Approved",
+    "examRoute": "NEET UG (State Quota & Management Quota via WBMCC)",
+    "estYear": "Est. 2016",
+    "commute": "Budge Budge Station (1.5 km) · Direct Ferry & Express Bus",
+    "photo": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "MBBS (State Quota)"
+      },
+      {
+        "name": "MBBS (Management Quota)"
+      },
+      {
+        "name": "B.Sc Nursing / GNM"
+      }
+    ],
+    "highlights": [
+      "Community health outreach centers serving rural and peri-urban South Bengal"
+    ],
+    "recruiters": [
+      "JIMSH Teaching Hospital",
+      "Woodlands Hospital",
+      "Desun Hospital",
+      "Ruby General Hospital"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "jismsr",
+    "name": "JIS School of Medical Science & Research",
+    "shortName": "JISMSR Santragachi",
+    "area": "Santragachi, Howrah (Kolkata Gateway)",
+    "stream": "med",
+    "streamLabel": "Medical & Healthcare",
+    "accreditation": "NMC Approved Medical College",
+    "affiliation": "JIS University & NMC Approved Medical Faculty",
+    "examRoute": "NEET UG Counselling",
+    "estYear": "Est. 2023",
+    "commute": "Santragachi Junction (1.2 km) · 20m from Howrah Station",
+    "photo": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "MBBS (State Domicile Quota)"
+      },
+      {
+        "name": "MBBS (Management Quota)"
+      }
+    ],
+    "highlights": [
+      "Direct access to national highway and Santragachi railway terminal for patient transit"
+    ],
+    "recruiters": [
+      "JIS Hospital Network",
+      "ILive Healthcare",
+      "Tata Medical Center (Fellowship tie-ups)"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "iq-city",
+    "name": "IQ City Medical College & Hospital",
+    "shortName": "IQ City Medical",
+    "area": "IQ City Health Village (Kolkata Office: Salt Lake)",
+    "stream": "med",
+    "streamLabel": "Medical & Healthcare",
+    "accreditation": "NABH & NABL Accredited · NMC",
+    "affiliation": "WBUHS & National Medical Commission (NMC) Approved",
+    "examRoute": "NEET UG",
+    "estYear": "Est. 2013",
+    "commute": "Direct Durgapur Expressway (Kolkata liaison in Salt Lake)",
+    "photo": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "MBBS (State Quota)"
+      },
+      {
+        "name": "MBBS (Management Quota)"
+      }
+    ],
+    "highlights": [
+      "NABH accredited diagnostics, fully automated NABL accredited central laboratories",
+      "State-of-the-art Burn Care Unit and Interventional Cardiology Cath Laboratory"
+    ],
+    "recruiters": [
+      "IQ City Super Specialty Hospital",
+      "Manipal Hospitals",
+      "Apollo Clinic Network"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "sxu",
+    "name": "St. Xavier’s University, Kolkata",
+    "shortName": "SXUK New Town",
+    "area": "Action Area III, New Town, Kolkata",
+    "stream": "asc",
+    "streamLabel": "Universities & Allied",
+    "accreditation": "UGC Recognized Jesuit University",
+    "affiliation": "Autonomous State Private University · BCI & AICTE Approved",
+    "examRoute": "Xavier Entrance Test / CUET / Merit Interview",
+    "estYear": "Est. 2017 (160+ yr Legacy)",
+    "commute": "New Town Action Area III · 20m from Sector V Metro",
+    "photo": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "B.Com (Hons) / B.A. Economics"
+      },
+      {
+        "name": "B.A. LL.B / B.Com LL.B (5 Years)"
+      },
+      {
+        "name": "Master of Business Admin (MBA)"
+      }
+    ],
+    "highlights": [],
+    "recruiters": [
+      "Deloitte",
+      "PwC",
+      "KPMG",
+      "EY",
+      "HDFC Bank",
+      "ICICI Securities",
+      "Marico",
+      "Tata Steel"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "amity-kol",
+    "name": "Amity University Kolkata",
+    "shortName": "Amity Kolkata",
+    "area": "Major Arterial Road, Action Area II, New Town",
+    "stream": "asc",
+    "streamLabel": "Universities & Allied",
+    "accreditation": "UGC & Bar Council / COA Approved",
+    "affiliation": "UGC Recognized State Private University",
+    "examRoute": "Direct 12th Merit / Amity Entrance & Skype Interview",
+    "estYear": "Est. 2015",
+    "commute": "New Town Major Arterial Road · City Centre II (10m)",
+    "photo": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "B.Tech Computer Science & Engg"
+      },
+      {
+        "name": "Bachelor of Business Admin (BBA)"
+      },
+      {
+        "name": "B.A. LL.B / BBA LL.B (5-Year)"
+      }
+    ],
+    "highlights": [
+      "Iconic multi-story glass-facade smart campus with high-tech research centers and moot courts",
+      "Study Abroad Program (SAP) with partner campuses in London, Dubai, Singapore, and New York",
+      "Foreign business language certifications (French, German, Spanish, Mandarin) built into degrees"
+    ],
+    "recruiters": [
+      "Amazon",
+      "Microsoft",
+      "Shell",
+      "Adani",
+      "HSBC",
+      "Wipro",
+      "ITC",
+      "L&T Infotech"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "snu",
+    "name": "Sister Nivedita University",
+    "shortName": "SNU New Town",
+    "area": "Action Area I, New Town, Kolkata",
+    "stream": "asc",
+    "streamLabel": "Universities & Allied",
+    "accreditation": "UGC Recognized · AICTE & PCI",
+    "affiliation": "Techno India Group · UGC · BCI, PCI, INC Approved",
+    "examRoute": "SNUET / WBJEE / Direct Class 12 Merit",
+    "estYear": "Est. 2017",
+    "commute": "New Town Bus Hub · 10m from Sector V Metro",
+    "photo": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "B.Tech CSE with IBM Specialization"
+      },
+      {
+        "name": "BCA / B.Sc Data Science"
+      },
+      {
+        "name": "B.Sc Nursing / B.Pharm"
+      }
+    ],
+    "highlights": [
+      "Dedicated Centers of Excellence in Artificial Intelligence, Cyber Security, and Game Design",
+      "Co-branded specialized B.Tech programs in partnership with IBM, Google, and Red Hat",
+      "Fully integrated nursing, pharmacy, and law faculties with court simulation chambers"
+    ],
+    "recruiters": [
+      "IBM",
+      "Google",
+      "Amazon",
+      "Cognizant",
+      "TCS",
+      "Capgemini",
+      "Apollo Hospitals"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "adamas",
+    "name": "Adamas University",
+    "shortName": "Adamas Barasat",
+    "area": "Adamaspuri, Barasat, North 24 Parganas, Kolkata",
+    "stream": "asc",
+    "streamLabel": "Universities & Allied",
+    "accreditation": "UGC Recognized · Times Rank #1",
+    "affiliation": "UGC, AICTE, BCI, PCI, ACU (Commonwealth Univ) Member",
+    "examRoute": "AUAT / WBJEE / CUET / 12th Board Merit",
+    "estYear": "Est. 2014",
+    "commute": "Barasat Junction (3 km) · AC University Shuttle fleet",
+    "photo": "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "B.Tech Computer Science"
+      },
+      {
+        "name": "Bachelor of Pharmacy (B.Pharm)"
+      },
+      {
+        "name": "BBA / B.Com (Hons)"
+      }
+    ],
+    "highlights": [],
+    "recruiters": [
+      "Amazon",
+      "Deloitte",
+      "Capgemini",
+      "Sun Pharma",
+      "Cipla",
+      "TCS",
+      "L&T Infotech"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "brainware",
+    "name": "Brainware University",
+    "shortName": "Brainware Barasat",
+    "area": "Ramkrishnapore, Barasat, Kolkata",
+    "stream": "asc",
+    "streamLabel": "Universities & Allied",
+    "accreditation": "UGC Recognized · Ministry of Edu",
+    "affiliation": "UGC, AICTE, PCI, BCI, INC Approved State Private Univ",
+    "examRoute": "Brainware Entrance (BET) / Direct Merit",
+    "estYear": "Est. 2016 (34-yr Edu Group)",
+    "commute": "Barasat Dakshin Station · 25m from Airport",
+    "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "B.Tech CSE (AI & Data Science)"
+      },
+      {
+        "name": "Bachelor of Computer App (BCA)"
+      },
+      {
+        "name": "Allied Health (BMLT / BPT / Radiology)"
+      }
+    ],
+    "highlights": [
+      "Strong programs in Allied Health Sciences (B.Sc Optometry, Radiology, Operation Theatre Tech)"
+    ],
+    "recruiters": [
+      "Wipro",
+      "TCS",
+      "Infosys",
+      "Cognizant",
+      "Adobe",
+      "Genpact",
+      "Apollo Diagnostics"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "jis-univ",
+    "name": "JIS University",
+    "shortName": "JIS University Agarpara",
+    "area": "Nilgunj Road, Agarpara, North Kolkata",
+    "stream": "asc",
+    "streamLabel": "Universities & Allied",
+    "accreditation": "UGC Recognized · Member AIU",
+    "affiliation": "JIS Group · UGC, AICTE, PCI, BCI Approved",
+    "examRoute": "JET (JIS Entrance) / WBJEE / Merit",
+    "estYear": "Est. 2014",
+    "commute": "Agarpara Railway Station (800m) · BT Road Link",
+    "photo": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "B.Tech Computer Science"
+      },
+      {
+        "name": "B.Pharm / M.Pharm"
+      },
+      {
+        "name": "LL.B / BBA LL.B (5-Year)"
+      }
+    ],
+    "highlights": [
+      "Comprehensive multidisciplinary university with dedicated Pharmacy, Management, and Law wings",
+      "Funded research laboratories supported by DST, DBT, and government biotechnology grants",
+      "Member of the prestigious Association of Indian Universities (AIU)"
+    ],
+    "recruiters": [
+      "Capgemini",
+      "TCS",
+      "Cognizant",
+      "Cipla",
+      "Lupin",
+      "Dr. Reddy’s",
+      "Tech Mahindra"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  },
+  {
+    "id": "uem",
+    "name": "University of Engineering & Management",
+    "shortName": "UEM New Town",
+    "area": "Action Area III, New Town, Kolkata",
+    "stream": "asc",
+    "streamLabel": "Universities & Allied",
+    "accreditation": "UGC & AICTE Approved",
+    "affiliation": "IEM-UEM Group · State Private University",
+    "examRoute": "IEMJEE / WBJEE / JEE Main (Direct University Exam)",
+    "estYear": "Est. 2014",
+    "commute": "New Town Action Area III · 15m from Shapoorji Pallonji Hub",
+    "photo": "https://images.unsplash.com/photo-1568792923760-d70635a89fa9?auto=format&fit=crop&w=800&q=80",
+    "programs": [
+      {
+        "name": "B.Tech Computer Science & Engg"
+      },
+      {
+        "name": "B.Tech CSE (AI & Data Science)"
+      },
+      {
+        "name": "B.Tech Electronics & Comm"
+      }
+    ],
+    "highlights": [
+      "Winner of European Society for Quality Research Award and rated Grade-A by NPTEL (IITs)",
+      "Global robotics competitions champion with international conference presentations",
+      "Strategic location in New Town educational hub near Silicon Valley SEZ"
+    ],
+    "recruiters": [
+      "Amazon",
+      "Google",
+      "Deloitte",
+      "PwC",
+      "Infosys",
+      "TCS Ninja & Digital",
+      "Wipro"
+    ],
+    "fees": {
+      "total4yr": null,
+      "perSemester": null,
+      "admissionFee": null,
+      "hostel": null,
+      "mess": null,
+      "source_url": null,
+      "last_verified": null
+    },
+    "placement": {
+      "highest": null,
+      "average": null,
+      "source_url": null,
+      "last_verified": null
+    }
+  }
+]

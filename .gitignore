@@ -1,2 +1,6 @@
 .venv/
 .dist/
+node_modules/
+.lighthouse-before/
+.env
+.env.local
