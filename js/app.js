@@ -257,8 +257,15 @@
       return true;
     });
 
+    grid.classList.toggle("single-result", filtered.length === 1);
+
     const vc = document.getElementById("visibleCount");
-    if (vc) vc.textContent = String(filtered.length);
+    if (vc) {
+      vc.textContent = String(filtered.length);
+      if (vc.parentElement) {
+        vc.parentElement.innerHTML = 'Showing <span id="visibleCount">' + filtered.length + "</span> " + (filtered.length === 1 ? "College" : "Colleges");
+      }
+    }
 
     if (filtered.length === 0) {
       grid.innerHTML =
@@ -270,76 +277,89 @@
       return;
     }
 
+    function collegeInitials(name) {
+      return String(name || "CC")
+        .split(/\s+/)
+        .map((w) => w.replace(/[^A-Za-z0-9]/g, "")[0])
+        .filter(Boolean)
+        .slice(0, 3)
+        .join("")
+        .toUpperCase();
+    }
+
+    function placeholderHtml(col) {
+      return (
+        '<div class="card-placeholder" role="img" aria-label="' + esc(col.name) + ' placeholder">' +
+          '<span class="card-placeholder-initials">' + esc(collegeInitials(col.name)) + "</span>" +
+          '<span class="card-placeholder-name">' + esc(col.name) + "</span>" +
+        "</div>"
+      );
+    }
+
+    const waSvg =
+      '<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>';
+
     filtered.forEach((col) => {
       const isCompared = compareList.some((c) => c.id === col.id);
       const card = document.createElement("article");
       card.className = "college-card";
       card.id = "card-" + col.id;
 
-      const verifiedBadge = isAnyVerified(col)
-        ? '<span class="badge-verified">✓ Verified data</span>'
+      const mediaHtml = col.photo
+        ? '<img src="' + esc(col.photo) + '" alt="' + esc(col.name) + ' campus" loading="lazy" decoding="async" onerror="swapToPlaceholder(this, \'' + esc(col.name) + '\')">'
+        : placeholderHtml(col);
+
+      const verifiedChip = isAnyVerified(col)
+        ? '<span class="chip chip-verified">✓ Verified data</span>'
         : "";
 
       const feeBlock = isFeeVerified(col)
-        ? '<div class="fee-box">' +
-            '<div class="fee-col">' +
-              '<div class="fee-label">Total Tuition</div>' +
-              '<div class="fee-val primary">' + esc(formatInr(col.fees.total4yr)) + "</div>" +
-              renderVerifiedMeta(col.fees.last_verified, col.fees.source_url) +
+        ? '<div class="card-fee-box card-fee-verified">' +
+            '<div class="card-fee-row">' +
+              '<span class="card-fee-label">Total Tuition</span>' +
+              '<strong class="card-fee-val">' + esc(formatInr(col.fees.total4yr)) + "</strong>" +
             "</div>" +
-            '<div class="fee-col">' +
-              '<div class="fee-label">Per Semester</div>' +
-              '<div class="fee-val">' + esc(col.fees.perSemester != null ? formatInr(col.fees.perSemester) : "On request") + "</div>" +
-            "</div>" +
+            renderVerifiedMeta(col.fees.last_verified, col.fees.source_url) +
           "</div>"
-        : '<div class="on-request-box">' +
-            '<div class="on-request-text">' + esc(t("feeOnRequest")) + "</div>" +
-            '<button type="button" class="btn-request-schedule" onclick="requestCollegeSchedule(\'' + esc(col.id) + '\', \'fee schedule\')">' +
+        : '<div class="card-fee-box">' +
+            '<span class="card-fee-request-text">Fee on request</span>' +
+            '<button type="button" class="btn-fee-req" onclick="requestCollegeSchedule(\'' + esc(col.id) + '\', \'fee schedule\')">' +
               esc(t("requestSchedule")) +
             "</button>" +
           "</div>";
 
       const hasPlacement = col.placement && col.placement.highest != null && col.placement.last_verified;
       const placementHtml = hasPlacement
-        ? '<div class="achieve-pill-list">' +
-            '<span class="achieve-pill highlight">Highest: ' + esc(String(col.placement.highest)) + "</span>" +
-          "</div>" +
-          renderVerifiedMeta(col.placement.last_verified, col.placement.source_url)
-        : '<div class="on-request-text" style="font-size:12.5px;">' + esc(t("placementOnRequest")) + "</div>";
+        ? '<div class="card-placement">' +
+            "<span>Highest: <strong>" + esc(String(col.placement.highest)) + "</strong></span>" +
+            renderVerifiedMeta(col.placement.last_verified, col.placement.source_url) +
+          "</div>"
+        : '<p class="card-placement">' + esc(t("placementOnRequest")) + "</p>";
 
-      const highlightText = (col.highlights && col.highlights[0]) || "";
       const waLink = waUrl("Hi Chatterjee Corporate Solutions, I want the official fee schedule for " + col.name + ".");
 
       card.innerHTML =
-        '<div class="card-photo-wrap">' +
-          '<img class="card-photo" src="' + esc(col.photo) + '" alt="' + esc(col.name) + ' Campus" width="800" height="400" loading="lazy" decoding="async" onerror="handleImageError(this, \'' + esc(col.name) + '\')">' +
-          '<div class="card-photo-gradient"></div>' +
-          '<div class="card-badges">' +
-            '<span class="badge-naac">' + esc(col.accreditation) + "</span>" +
-            '<span class="badge-stream">' + esc(col.streamLabel) + "</span>" +
-            verifiedBadge +
-          "</div>" +
-          '<div class="card-photo-bottom">' +
-            '<span class="exam-tag">' + esc(col.examRoute) + "</span>" +
-            '<span class="est-year">' + esc(col.estYear) + "</span>" +
-          "</div>" +
+        '<div class="card-media">' +
+          mediaHtml +
         "</div>" +
-        '<div class="card-content">' +
-          '<div class="card-header-info">' +
-            '<h3 class="college-name">' + esc(col.name) + "</h3>" +
-            '<div class="college-area">' + esc(col.area) + "</div>" +
+        '<div class="card-body">' +
+          '<div class="card-meta-chips">' +
+            '<span class="chip chip-naac">' + esc(col.accreditation) + "</span>" +
+            '<span class="chip chip-stream">' + esc(col.streamLabel) + "</span>" +
+            '<span class="chip chip-route">' + esc(col.examRoute) + "</span>" +
+            '<span class="chip chip-est">' + esc(col.estYear) + "</span>" +
+            verifiedChip +
           "</div>" +
-          '<div class="commute-pill"><span>' + esc(col.commute) + "</span></div>" +
+          '<h3 class="card-title">' + esc(col.name) + "</h3>" +
+          '<div class="card-location">' + esc(col.area) + "</div>" +
+          '<p class="card-commute">' + esc(col.commute) + "</p>" +
           feeBlock +
-          '<div class="achieve-box">' +
-            placementHtml +
-            (highlightText ? '<p class="achieve-desc">' + esc(highlightText) + "</p>" : "") +
-          "</div>" +
-          '<div class="card-footer">' +
-            '<button type="button" class="btn-card-action btn-detail" onclick="openDetailModal(\'' + esc(col.id) + '\')">Details &amp; Programs</button>' +
-            '<a href="' + esc(waLink) + '" target="_blank" rel="noopener noreferrer" class="btn-wa-card" data-wa-link="true">WhatsApp</a>' +
-            '<button type="button" class="btn-compare-add ' + (isCompared ? "added" : "") + '" onclick="toggleCompare(\'' + esc(col.id) + '\', this)">' +
-              (isCompared ? "✓ Added" : "+ Compare") +
+          placementHtml +
+          '<div class="card-actions">' +
+            '<button type="button" class="btn-card-primary" onclick="openDetailModal(\'' + esc(col.id) + '\')">Details &amp; Programs</button>' +
+            '<a href="' + esc(waLink) + '" target="_blank" rel="noopener noreferrer" class="btn-card-wa-sec" data-wa-link="true">' + waSvg + "<span>WhatsApp</span></a>" +
+            '<button type="button" class="btn-card-compare ' + (isCompared ? "added" : "") + '" aria-pressed="' + (isCompared ? "true" : "false") + '" onclick="toggleCompare(\'' + esc(col.id) + '\', this)">' +
+              (isCompared ? "✓ Compared" : "+ Compare") +
             "</button>" +
           "</div>" +
         "</div>";
@@ -401,10 +421,14 @@
     document.getElementById("modalNaac").textContent = col.accreditation;
     document.getElementById("modalStream").textContent = col.streamLabel;
     const modalImg = document.getElementById("modalImg");
-    modalImg.onerror = function () {
+    if (col.photo) {
+      modalImg.onerror = function () {
+        handleImageError(modalImg, col.name);
+      };
+      modalImg.src = col.photo;
+    } else {
       handleImageError(modalImg, col.name);
-    };
-    modalImg.src = col.photo;
+    }
     document.getElementById("modalAffil").textContent = col.affiliation;
     document.getElementById("modalNirf").textContent = col.examRoute;
     document.getElementById("modalCommuteText").textContent = col.commute;
@@ -514,6 +538,7 @@
       compareList.splice(idx, 1);
       if (btn) {
         btn.classList.remove("added");
+        btn.setAttribute("aria-pressed", "false");
         btn.textContent = "+ Compare";
       }
       showToast("Removed college from comparison.");
@@ -527,12 +552,33 @@
         compareList.push(col);
         if (btn) {
           btn.classList.add("added");
-          btn.textContent = "✓ Added";
+          btn.setAttribute("aria-pressed", "true");
+          btn.textContent = "✓ Compared";
         }
         showToast("Added " + col.shortName + " to comparison.");
       }
     }
     updateCompareBar();
+  }
+
+  function swapToPlaceholder(imgEl, title) {
+    const parent = imgEl.parentElement;
+    if (!parent) return;
+    const initials = String(title || "CC")
+      .split(/\s+/)
+      .map((w) => w.replace(/[^A-Za-z0-9]/g, "")[0])
+      .filter(Boolean)
+      .slice(0, 3)
+      .join("")
+      .toUpperCase();
+    const div = document.createElement("div");
+    div.className = "card-placeholder";
+    div.setAttribute("role", "img");
+    div.setAttribute("aria-label", title + " placeholder");
+    div.innerHTML =
+      '<span class="card-placeholder-initials">' + esc(initials) + "</span>" +
+      '<span class="card-placeholder-name">' + esc(title) + "</span>";
+    parent.replaceChild(div, imgEl);
   }
 
   function updateCompareBar() {
@@ -558,9 +604,10 @@
 
   function removeCompareItem(collegeId) {
     compareList = compareList.filter((c) => c.id !== collegeId);
-    const btn = document.querySelector("#card-" + collegeId + " .btn-compare-add");
+    const btn = document.querySelector("#card-" + collegeId + " .btn-card-compare");
     if (btn) {
       btn.classList.remove("added");
+      btn.setAttribute("aria-pressed", "false");
       btn.textContent = "+ Compare";
     }
     updateCompareBar();
@@ -571,8 +618,9 @@
 
   function clearComparison() {
     compareList = [];
-    document.querySelectorAll(".btn-compare-add").forEach((b) => {
+    document.querySelectorAll(".btn-card-compare").forEach((b) => {
       b.classList.remove("added");
+      b.setAttribute("aria-pressed", "false");
       b.textContent = "+ Compare";
     });
     updateCompareBar();
@@ -1090,6 +1138,7 @@
   window.closeComparisonModal = closeComparisonModal;
   window.handleFormSubmit = handleFormSubmit;
   window.handleImageError = handleImageError;
+  window.swapToPlaceholder = swapToPlaceholder;
   window.requestCollegeSchedule = requestCollegeSchedule;
 
   document.addEventListener("DOMContentLoaded", async () => {

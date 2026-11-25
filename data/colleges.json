@@ -11,7 +11,7 @@
     "examRoute": "WBJEE / JEE Main",
     "estYear": "Est. 2001",
     "commute": "Hemanta Mukherjee (Ruby) Metro (2.5 km) · 35m from Sealdah",
-    "photo": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "Computer Science & Engineering (CSE)"
@@ -62,7 +62,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "iem",
@@ -76,7 +77,7 @@
     "examRoute": "WBJEE / JEE Main / IEMJEE Entrance",
     "estYear": "Est. 1989",
     "commute": "Salt Lake Sector V Metro (800m) · Direct AC Bus Route",
-    "photo": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "Computer Science & Engineering (CSE)"
@@ -125,7 +126,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "tiu",
@@ -139,7 +141,7 @@
     "examRoute": "WBJEE / JEE Main / TNJEE (Direct Merit)",
     "estYear": "Est. 2012",
     "commute": "Salt Lake Sector V Metro (600m) · EM Bypass corridor",
-    "photo": "https://images.unsplash.com/photo-1592280771190-3e2e4d571952?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "B.Tech Computer Science & Engg"
@@ -185,7 +187,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "tint",
@@ -199,7 +202,7 @@
     "examRoute": "WBJEE / JEE Main Counselling",
     "estYear": "Est. 2005",
     "commute": "New Town Ecospace bus terminal · 15m from Airport",
-    "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "Computer Science & Engineering"
@@ -246,7 +249,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "nsec",
@@ -260,7 +264,7 @@
     "examRoute": "WBJEE / JEE Main",
     "estYear": "Est. 1998",
     "commute": "Kavi Subhash Metro & Garia Station (1.8 km)",
-    "photo": "https://images.unsplash.com/photo-1519452635265-7b1fbfd1e4e0?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "Computer Science & Engineering"
@@ -305,7 +309,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "nit-agarpara",
@@ -319,7 +324,7 @@
     "examRoute": "WBJEE / JEE Main / JIS Group Entrance",
     "estYear": "Est. 2001",
     "commute": "Agarpara Railway Station (1 km) · Baranagar Metro (15m)",
-    "photo": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "Computer Science & Engineering"
@@ -366,7 +371,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "hit-haldia",
@@ -380,7 +386,7 @@
     "examRoute": "WBJEE / JEE Main Counselling",
     "estYear": "Est. 1996",
     "commute": "2.5 hrs AC Bus from Esplanade / Direct Local Express",
-    "photo": "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "Computer Science & Engineering"
@@ -422,7 +428,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "fiem",
@@ -436,7 +443,7 @@
     "examRoute": "WBJEE / JEE Main",
     "estYear": "Est. 2001",
     "commute": "Sonarpur Local Station (500m) · Kavi Subhash Metro (15m)",
-    "photo": "https://images.unsplash.com/photo-1568792923760-d70635a89fa9?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "Computer Science & Engineering"
@@ -477,7 +484,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "kpc",
@@ -491,7 +499,7 @@
     "examRoute": "NEET UG",
     "estYear": "Est. 2006",
     "commute": "Jadavpur Railway Station (600m) · Kavi Nazrul Metro (10m)",
-    "photo": "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "MBBS (State Quota"
@@ -528,7 +536,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "jimsh",
@@ -542,7 +551,7 @@
     "examRoute": "NEET UG (State Quota & Management Quota via WBMCC)",
     "estYear": "Est. 2016",
     "commute": "Budge Budge Station (1.5 km) · Direct Ferry & Express Bus",
-    "photo": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "MBBS (State Quota)"
@@ -577,7 +586,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "jismsr",
@@ -591,7 +601,7 @@
     "examRoute": "NEET UG Counselling",
     "estYear": "Est. 2023",
     "commute": "Santragachi Junction (1.2 km) · 20m from Howrah Station",
-    "photo": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "MBBS (State Domicile Quota)"
@@ -622,7 +632,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "iq-city",
@@ -636,7 +647,7 @@
     "examRoute": "NEET UG",
     "estYear": "Est. 2013",
     "commute": "Direct Durgapur Expressway (Kolkata liaison in Salt Lake)",
-    "photo": "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "MBBS (State Quota)"
@@ -668,7 +679,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "sxu",
@@ -682,7 +694,7 @@
     "examRoute": "Xavier Entrance Test / CUET / Merit Interview",
     "estYear": "Est. 2017 (160+ yr Legacy)",
     "commute": "New Town Action Area III · 20m from Sector V Metro",
-    "photo": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "B.Com (Hons) / B.A. Economics"
@@ -719,7 +731,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "amity-kol",
@@ -733,7 +746,7 @@
     "examRoute": "Direct 12th Merit / Amity Entrance & Skype Interview",
     "estYear": "Est. 2015",
     "commute": "New Town Major Arterial Road · City Centre II (10m)",
-    "photo": "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "B.Tech Computer Science & Engg"
@@ -774,7 +787,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "snu",
@@ -788,7 +802,7 @@
     "examRoute": "SNUET / WBJEE / Direct Class 12 Merit",
     "estYear": "Est. 2017",
     "commute": "New Town Bus Hub · 10m from Sector V Metro",
-    "photo": "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "B.Tech CSE with IBM Specialization"
@@ -828,7 +842,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "adamas",
@@ -842,7 +857,7 @@
     "examRoute": "AUAT / WBJEE / CUET / 12th Board Merit",
     "estYear": "Est. 2014",
     "commute": "Barasat Junction (3 km) · AC University Shuttle fleet",
-    "photo": "https://images.unsplash.com/photo-1541829070764-84a7d30dd3f3?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "B.Tech Computer Science"
@@ -878,7 +893,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "brainware",
@@ -892,7 +908,7 @@
     "examRoute": "Brainware Entrance (BET) / Direct Merit",
     "estYear": "Est. 2016 (34-yr Edu Group)",
     "commute": "Barasat Dakshin Station · 25m from Airport",
-    "photo": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "B.Tech CSE (AI & Data Science)"
@@ -930,7 +946,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "jis-univ",
@@ -944,7 +961,7 @@
     "examRoute": "JET (JIS Entrance) / WBJEE / Merit",
     "estYear": "Est. 2014",
     "commute": "Agarpara Railway Station (800m) · BT Road Link",
-    "photo": "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "B.Tech Computer Science"
@@ -984,7 +1001,8 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   },
   {
     "id": "uem",
@@ -998,7 +1016,7 @@
     "examRoute": "IEMJEE / WBJEE / JEE Main (Direct University Exam)",
     "estYear": "Est. 2014",
     "commute": "New Town Action Area III · 15m from Shapoorji Pallonji Hub",
-    "photo": "https://images.unsplash.com/photo-1568792923760-d70635a89fa9?auto=format&fit=crop&w=800&q=80",
+    "photo": null,
     "programs": [
       {
         "name": "B.Tech Computer Science & Engg"
@@ -1038,6 +1056,7 @@
       "average": null,
       "source_url": null,
       "last_verified": null
-    }
+    },
+    "photo_credit": null
   }
 ]
