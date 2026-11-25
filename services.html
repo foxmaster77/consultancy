@@ -2,1200 +2,1179 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Chatterjee Corporate Solutions — Business, Compliance & Financial Services</title>
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chatterjee Corporate Solutions — Business, Compliance &amp; Financial Services</title>
+<meta name="description" content="Interactive 3D Practice Shelf and corporate compliance directory: Company Registration, GST, ITR, Audit, Trademark, Trade Licence, MSME, FSSAI, ISO, and NGO services in Kolkata.">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@500;600;700;800&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;1,400&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cinzel:wght@600;700;800&family=EB+Garamond:ital,wght@0,500;0,600;1,400&display=optional" rel="stylesheet"></noscript>
 
 <style>
   :root{
-    --bg:#1a1d24;
+    --bg:#14171f;
     --paper:#f5efe6;
     --gold:#d4af37;
     --gold-bright:#f3cf65;
     --gold-glow:rgba(212,175,55,0.28);
     --navy:#0c1322;
     --ink:#1a1917;
-    --ink-soft:rgba(26,25,23,.64);
-    --panel-bg:rgba(248,244,236,0.95);
+    --ink-soft:rgba(26,25,23,.72);
+    --panel-bg:rgba(248,244,236,0.97);
     --ease:cubic-bezier(.22,1,.36,1);
   }
   *{box-sizing:border-box}
-  html,body{height:100%;margin:0;padding:0}
+  html,body{min-height:100%;margin:0;padding:0}
   body{
     background:#14171f radial-gradient(circle at 50% 30%, #1f2533 0%, #0d111a 100%);
     color:var(--paper);
     font-family:Inter,-apple-system,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:16px;
+    line-height:1.55;
     -webkit-font-smoothing:antialiased;
-    overflow:hidden;
+    overflow-x:hidden;
   }
-  canvas#gl{
-    position:fixed;inset:0;width:100%;height:100%;display:block;
-    touch-action:none;user-select:none;-webkit-user-select:none;
-    opacity:0;transition:opacity 1.2s ease-out;
+
+  .sr-only{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+    overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
   }
-  canvas#gl.on{opacity:1}
+
+  :focus-visible{
+    outline:2.5px solid var(--gold-bright);
+    outline-offset:2px;
+  }
 
   /* ---------- header ---------- */
   header{
-    position:fixed;top:0;left:0;right:0;height:72px;z-index:30;
-    display:flex;align-items:center;padding:0 clamp(16px,3vw,36px);gap:20px;
-    background:linear-gradient(180deg, rgba(12,17,26,0.92) 0%, rgba(12,17,26,0.6) 70%, transparent 100%);
+    position:sticky;top:0;left:0;right:0;min-height:68px;z-index:30;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:10px clamp(14px,3vw,36px);
+    padding-top:calc(10px + env(safe-area-inset-top));
+    gap:14px;
+    background:rgba(12,17,26,0.94);
     -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
-    border-bottom:1px solid rgba(212,175,55,0.15);
+    border-bottom:1px solid rgba(212,175,55,0.18);
   }
-  .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit;flex-shrink:0}
   .brand-logo{
-    width:38px;height:38px;border-radius:8px;object-fit:cover;
+    width:36px;height:36px;border-radius:8px;object-fit:cover;
     border:1.5px solid var(--gold);box-shadow:0 0 12px var(--gold-glow);
   }
   .brand-text{display:flex;flex-direction:column}
   .brandname{
-    font-family:'Cinzel',serif;font-size:clamp(16px,1.6vw,20px);font-weight:700;
-    letter-spacing:.08em;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,0.8);
-    display:flex;align-items:center;gap:6px;
+    font-family:'Cinzel',serif;font-size:clamp(14.5px,1.6vw,19px);font-weight:700;
+    letter-spacing:.06em;color:#fff;line-height:1.2;white-space:nowrap;
   }
   .brandname span{color:var(--gold)}
   .brandtag{
-    font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(212,175,55,0.85);
+    font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(243,207,101,0.9);
     font-weight:500;
   }
 
-  header .nav-links{display:flex;align-items:center;gap:14px;margin-left:auto}
+  header .nav-links{display:flex;align-items:center;gap:10px;margin-left:auto}
   .pill{
-    background:rgba(255,255,255,0.08);color:#f5f0e6;padding:9px 18px;border-radius:999px;
-    text-decoration:none;font-size:13.5px;font-weight:500;display:inline-flex;align-items:center;gap:7px;
-    border:1px solid rgba(255,255,255,0.14);transition:all .25s var(--ease);white-space:nowrap;
+    background:rgba(255,255,255,0.09);color:#f5f0e6;padding:10px 16px;border-radius:999px;
+    text-decoration:none;font-size:13.5px;font-weight:600;display:inline-flex;align-items:center;gap:7px;
+    border:1px solid rgba(255,255,255,0.18);transition:background .25s var(--ease), border-color .25s var(--ease);
+    white-space:nowrap;min-height:44px;cursor:pointer;
   }
-  .pill:hover{background:rgba(255,255,255,0.16);transform:translateY(-1px);border-color:var(--gold)}
+  .pill:hover{background:rgba(255,255,255,0.16);border-color:var(--gold)}
   .pill.gold{
     background:linear-gradient(135deg, #d4af37 0%, #b88f24 100%);
-    color:#0d111a;font-weight:600;border:none;box-shadow:0 2px 14px rgba(212,175,55,0.35);
+    color:#0d111a;font-weight:700;border:none;box-shadow:0 2px 14px rgba(212,175,55,0.35);
   }
-  .pill.gold:hover{background:linear-gradient(135deg, #f0c952 0%, #c99c28 100%);box-shadow:0 4px 20px rgba(212,175,55,0.5)}
+  .pill.gold:hover{background:linear-gradient(135deg, #f0c952 0%, #c99c28 100%)}
 
-  /* ---------- focused volume panel ---------- */
-  .wash{
-    position:fixed;left:0;top:0;z-index:14;height:100vh;
-    width:min(640px,55vw);pointer-events:none;display:block;
-    background:linear-gradient(90deg, rgba(10,13,20,0.85) 0%, rgba(10,13,20,0.55) 75%, transparent 100%);
-    opacity:0;transition:opacity .5s var(--ease);
+  .menu-toggle{
+    display:none;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:10px;
+    background:rgba(255,255,255,0.08);color:#fff;
+    border:1px solid rgba(212,175,55,0.35);cursor:pointer;
   }
-  .wash.on{opacity:1}
-  body.mobile .wash{display:none}
+  .mobile-nav-drawer{
+    display:none;position:fixed;inset:0;z-index:60;background:rgba(6,9,16,0.75);
+  }
+  .mobile-nav-drawer.open{display:block}
+  .mobile-nav-panel{
+    position:absolute;top:0;right:0;width:min(85vw,320px);height:100%;
+    background:#0c1322;border-left:1px solid rgba(212,175,55,0.28);
+    padding:20px 18px calc(24px + env(safe-area-inset-bottom));
+    display:flex;flex-direction:column;gap:12px;
+  }
+
+  /* ---------- 3D stage ---------- */
+  .stage{
+    position:relative;width:100%;height:calc(100svh - 68px);height:calc(100dvh - 68px);
+    min-height:460px;overflow:hidden;
+  }
+  canvas#gl{
+    position:absolute;inset:0;width:100%;height:100%;display:block;
+    touch-action:pan-y;user-select:none;-webkit-user-select:none;
+    opacity:0;transition:opacity .8s ease-out;
+  }
+  canvas#gl.on{opacity:1}
+
+  .shelf-instructions{
+    position:absolute;top:14px;left:50%;transform:translateX(-50%);z-index:20;
+    background:rgba(15,21,32,0.88);border:1px solid rgba(212,175,55,0.3);
+    border-radius:999px;padding:7px 16px;font-size:13px;color:rgba(255,255,255,0.92);
+    backdrop-filter:blur(8px);display:flex;align-items:center;gap:8px;pointer-events:none;
+    max-width:calc(100vw - 24px);text-align:center;
+    transition:opacity .4s;
+  }
+  .shelf-instructions.hidden{opacity:0}
+
+  .shelf-arrows{
+    position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);
+    display:flex;justify-content:space-between;padding:0 12px;pointer-events:none;z-index:21;
+  }
+  .arrow-btn{
+    pointer-events:auto;width:44px;height:44px;border-radius:50%;
+    background:rgba(12,17,26,0.86);color:var(--gold-bright);
+    border:1px solid rgba(212,175,55,0.45);
+    display:grid;place-items:center;cursor:pointer;
+    box-shadow:0 4px 16px rgba(0,0,0,0.45);
+  }
+  .arrow-btn:hover{background:rgba(212,175,55,0.2);color:#fff}
+
+  /* Cursor hint (fine pointer only) */
+  .hint{
+    position:fixed;z-index:26;left:0;top:0;transform:translate(12px,12px);
+    background:rgba(18,24,36,0.94);color:#fff;border-radius:999px;padding:8px 14px;
+    font:500 13px/1 Inter,sans-serif;box-shadow:0 4px 20px rgba(0,0,0,0.5);
+    border:1px solid rgba(212,175,55,0.4);pointer-events:none;opacity:0;transition:opacity .25s;
+    display:none;align-items:center;gap:6px;
+  }
+  @media (hover: hover) and (pointer: fine){
+    .hint{display:flex}
+  }
+  .hint.on{opacity:1}
+  .hint svg{width:13px;height:13px;color:var(--gold)}
+
+  /* ---------- focused volume panel (desktop) & bottom sheet (mobile) ---------- */
+  .wash{
+    position:fixed;inset:0;z-index:24;pointer-events:none;
+    background:rgba(8,11,18,0.58);
+    opacity:0;transition:opacity .35s var(--ease);
+  }
+  .wash.on{opacity:1;pointer-events:auto}
 
   .detail{
-    position:fixed;left:0;top:50%;transform:translateY(-48%);z-index:25;
-    width:min(580px,52vw);padding:clamp(20px,4vw,40px) clamp(24px,4.5vw,56px);
-    opacity:0;pointer-events:none;transform:translateY(-46%) scale(0.97);
-    transition:opacity .45s var(--ease), transform .45s var(--ease);
+    position:fixed;left:0;top:50%;transform:translateY(-46%) scale(0.97);z-index:35;
+    width:min(580px,54vw);padding:clamp(16px,3vw,36px);
+    opacity:0;pointer-events:none;
+    transition:opacity .35s var(--ease), transform .35s var(--ease);
   }
-  .detail.on{opacity:1;pointer-events:auto;transform:translateY(-48%) scale(1)}
+  .detail.on{opacity:1;pointer-events:auto;transform:translateY(-50%) scale(1)}
   .detail-card{
     background:var(--panel-bg);color:var(--ink);
-    border-radius:20px;padding:32px 36px;
-    box-shadow:0 10px 40px -10px rgba(0,0,0,0.7), 0 0 0 1px rgba(212,175,55,0.35);
-    position:relative;overflow:hidden;
+    border-radius:20px;padding:28px 32px;
+    box-shadow:0 14px 44px -10px rgba(0,0,0,0.72), 0 0 0 1px rgba(212,175,55,0.4);
+    position:relative;overflow-y:auto;max-height:82dvh;
   }
   .detail-card::before{
     content:"";position:absolute;top:0;left:0;right:0;height:4px;
     background:linear-gradient(90deg, #b88f24, #f5d77f, #b88f24);
   }
+  .sheet-handle{
+    display:none;width:44px;height:5px;border-radius:999px;
+    background:rgba(26,25,23,0.25);margin:0 auto 14px;
+  }
+  .sheet-close-x{
+    position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;
+    border:1px solid rgba(26,25,23,0.16);background:rgba(255,255,255,0.75);
+    color:var(--ink);font-size:20px;display:grid;place-items:center;cursor:pointer;
+  }
 
   .detail .meta{
-    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
-    color:#8b6b28;margin:0 0 10px;font-weight:600;display:flex;align-items:center;gap:8px;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:#73561b;margin:0 0 8px;font-weight:700;display:flex;align-items:center;gap:8px;padding-right:40px;
   }
   .detail .meta .badge{
-    background:rgba(212,175,55,0.18);color:#6b4f10;padding:2px 8px;border-radius:4px;
+    background:rgba(212,175,55,0.22);color:#5c420c;padding:3px 9px;border-radius:4px;
   }
   .detail h2{
     font-family:'EB Garamond',Georgia,serif;font-weight:600;
-    font-size:clamp(28px,3vw,36px);line-height:1.15;margin:0 0 8px;letter-spacing:-.01em;
-    color:#121824;
+    font-size:clamp(26px,3vw,34px);line-height:1.15;margin:0 0 6px;color:#121824;
   }
   .detail .subhead{
-    font-size:14px;font-weight:600;color:#9b6e22;letter-spacing:.04em;text-transform:uppercase;margin-bottom:16px;
+    font-size:13.5px;font-weight:600;color:#7a5514;letter-spacing:.03em;text-transform:uppercase;margin-bottom:14px;
   }
-  .detail p{
-    font:400 15px/1.6 Inter,sans-serif;margin:0 0 20px;color:rgba(30,32,38,.86);
-  }
+  .detail p{font:400 15px/1.6 Inter,sans-serif;margin:0 0 16px;color:rgba(26,25,23,.88)}
 
   .service-features{
-    list-style:none;padding:0;margin:0 0 24px;display:grid;grid-template-columns:1fr 1fr;gap:9px;
+    list-style:none;padding:0;margin:0 0 18px;display:grid;grid-template-columns:1fr 1fr;gap:8px;
   }
   .service-features li{
-    font-size:13px;display:flex;align-items:center;gap:7px;color:#2c3340;font-weight:500;
+    font-size:13.5px;display:flex;align-items:center;gap:7px;color:#222834;font-weight:500;
   }
-  .service-features li svg{flex:0 0 auto;width:15px;height:15px;color:#1e7e34}
+  .service-features li svg{flex:0 0 auto;width:15px;height:15px;color:#166534}
 
   .tat-row{
-    display:flex;align-items:center;justify-content:space-between;
-    background:rgba(0,0,0,0.04);border-radius:8px;padding:8px 14px;margin-bottom:22px;
-    font-size:13px;border-left:3px solid var(--gold);
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;
+    background:rgba(0,0,0,0.045);border-radius:8px;padding:10px 14px;margin-bottom:18px;
+    font-size:13.5px;border-left:3px solid var(--gold);
   }
   .tat-row strong{color:#111}
 
   .detail .acts{display:flex;gap:10px;flex-wrap:wrap}
   .detail .acts button, .detail .acts a{
-    font:600 13.5px/1 Inter,sans-serif;border:0;border-radius:999px;padding:13px 22px;
-    cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:7px;
-    transition:all .22s var(--ease);
+    font:600 14px/1 Inter,sans-serif;border:0;border-radius:999px;padding:13px 20px;min-height:44px;
+    cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px;
   }
-  .btn-wa{
-    background:#168039;color:#fff !important;
-    box-shadow:0 4px 14px rgba(22,128,57,0.35);
-  }
-  .btn-wa:hover{background:#1ca047;transform:translateY(-2px);box-shadow:0 6px 20px rgba(22,128,57,0.45)}
-  .btn-call{
-    background:#141b29;color:#fff !important;
-    box-shadow:0 4px 14px rgba(20,27,41,0.25);
-  }
-  .btn-call:hover{background:#222e47;transform:translateY(-2px)}
-  .btn-close{
-    background:transparent;color:var(--ink-soft);border:1px solid rgba(0,0,0,0.15) !important;
-  }
-  .btn-close:hover{background:rgba(0,0,0,0.05);color:var(--ink)}
+  .btn-wa{background:#15803d;color:#fff !important}
+  .btn-call{background:#141b29;color:#fff !important}
+  .btn-close{background:transparent;color:var(--ink-soft);border:1px solid rgba(0,0,0,0.2) !important}
 
-  /* Cursor hint */
-  .hint{
-    position:fixed;z-index:26;left:0;top:0;transform:translate(12px,12px);
-    background:rgba(18,24,36,0.92);color:#fff;border-radius:999px;padding:8px 14px;
-    font:500 12.5px/1 Inter,sans-serif;box-shadow:0 4px 20px rgba(0,0,0,0.5);
-    border:1px solid rgba(212,175,55,0.4);pointer-events:none;opacity:0;transition:opacity .35s;
-    display:flex;align-items:center;gap:6px;
-  }
-  .hint.on{opacity:1}
-  .hint svg{width:13px;height:13px;color:var(--gold)}
-
-  /* Instructions badge */
-  .shelf-instructions{
-    position:fixed;top:86px;left:50%;transform:translateX(-50%);z-index:20;
-    background:rgba(15,21,32,0.8);border:1px solid rgba(212,175,55,0.25);
-    border-radius:999px;padding:7px 18px;font-size:12.5px;color:rgba(255,255,255,0.85);
-    backdrop-filter:blur(8px);display:flex;align-items:center;gap:8px;pointer-events:none;
-    box-shadow:0 4px 16px rgba(0,0,0,0.4);transition:opacity .5s;
-  }
-  .shelf-instructions.hidden{opacity:0}
-
-  /* ---------- catalogue rail ---------- */
-  footer{
-    position:fixed;left:0;right:0;bottom:0;z-index:22;padding:24px 0 16px;
+  /* ---------- bottom shelf rail (desktop) ---------- */
+  .shelf-rail{
+    position:absolute;left:0;right:0;bottom:0;z-index:22;padding:18px 0 14px;
     background:linear-gradient(to top, rgba(10,14,22,0.96) 60%, rgba(10,14,22,0.6) 88%, transparent 100%);
-    border-top:1px solid rgba(212,175,55,0.18);opacity:0;transition:opacity .7s var(--ease) .34s;
+    border-top:1px solid rgba(212,175,55,0.18);
   }
-  footer.on{opacity:1}
   .tl{
-    display:flex;justify-content:center;align-items:center;
-    gap:clamp(8px,1.4vw,20px);padding:0 clamp(16px,3vw,40px);
+    display:flex;align-items:center;gap:12px;padding:0 clamp(14px,3vw,36px);
     overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;
   }
   .tl::-webkit-scrollbar{display:none}
   .tli{
-    background:rgba(255,255,255,0.04);border:1px solid rgba(212,175,55,0.14);
+    background:rgba(255,255,255,0.06);border:1px solid rgba(212,175,55,0.18);
     padding:8px 14px;border-radius:10px;text-align:left;cursor:pointer;font:inherit;
-    flex:0 0 auto;display:flex;align-items:center;gap:10px;color:#fff;
-    transition:all .3s var(--ease);
+    flex:0 0 auto;display:flex;align-items:center;gap:10px;color:#fff;min-height:44px;
+    transition:all .25s var(--ease);
   }
   .tli:hover, .tli.active{
-    background:rgba(212,175,55,0.12);border-color:var(--gold);transform:translateY(-2px);
-    box-shadow:0 4px 16px rgba(212,175,55,0.15);
+    background:rgba(212,175,55,0.16);border-color:var(--gold);
   }
   .tl-num{
-    font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:var(--gold);
-    width:24px;height:24px;border-radius:50%;background:rgba(212,175,55,0.12);
+    font-family:'Cinzel',serif;font-size:13px;font-weight:700;color:var(--gold-bright);
+    width:24px;height:24px;border-radius:50%;background:rgba(212,175,55,0.14);
     display:grid;place-items:center;
   }
-  .tltxt p{margin:0;font-size:11px;color:rgba(255,255,255,0.5);letter-spacing:.04em}
-  .tltxt h3{margin:2px 0 0;font-size:12.5px;font-weight:500;white-space:nowrap}
+  .tltxt p{margin:0;font-size:11px;color:rgba(255,255,255,0.68)}
+  .tltxt h3{margin:2px 0 0;font-size:13px;font-weight:600;white-space:nowrap}
 
-  /* ---------- mobile drawer & bottom bar ---------- */
+  /* ---------- mobile bottom bar ---------- */
   .mbar{
     position:fixed;left:0;right:0;bottom:0;z-index:28;display:none;
-    align-items:center;justify-content:space-between;gap:12px;padding:16px 18px 24px;
-    background:linear-gradient(to top, rgba(12,16,24,0.98) 75%, rgba(12,16,24,0.7) 95%, transparent);
-    border-top:1px solid rgba(212,175,55,0.25);
+    align-items:center;justify-content:space-between;gap:10px;
+    padding:12px 14px calc(12px + env(safe-area-inset-bottom));
+    background:rgba(12,16,24,0.97);
+    border-top:1px solid rgba(212,175,55,0.28);
   }
-  .mbar-txt p{margin:0 0 2px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
-  .mbar-txt h2{margin:0;font-family:'EB Garamond',serif;font-size:19px;font-weight:600;color:#fff}
-  .mbar-acts{display:flex;gap:8px}
-  .mbar-acts a, .mbar-acts button{
-    font:600 13px/1 Inter,sans-serif;border:0;border-radius:999px;padding:11px 16px;
-    text-decoration:none;display:inline-flex;align-items:center;gap:5px;
+  .mbar-txt{min-width:0}
+  .mbar-txt p{margin:0 0 2px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-bright)}
+  .mbar-txt h2{margin:0;font-family:'EB Garamond',serif;font-size:18px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mbar-acts{display:flex;gap:8px;flex-shrink:0}
+
+  /* ---------- 2D fallback / SEO services grid ---------- */
+  .fallback-wrap{
+    max-width:1200px;margin:0 auto;padding:28px 18px 40px;
+  }
+  .fallback-head{margin-bottom:20px}
+  .fallback-head h1{font-family:'Cinzel',serif;font-size:clamp(22px,3.5vw,32px);color:var(--gold-bright);margin:0 0 6px}
+  .fallback-head p{color:rgba(245,239,230,0.82);margin:0;font-size:15px}
+  .fallback-grid{
+    display:grid;grid-template-columns:repeat(auto-fill, minmax(290px, 1fr));gap:18px;
+  }
+  .fb-card{
+    background:rgba(255,255,255,0.05);border:1px solid rgba(212,175,55,0.24);
+    border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:10px;
+  }
+  .fb-meta{font-size:12px;color:var(--gold-bright);text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+  .fb-card h2{font-family:'EB Garamond',serif;font-size:24px;margin:0;color:#fff}
+  .fb-card p{margin:0;font-size:14.5px;color:rgba(245,239,230,0.84)}
+  .fb-tat{font-size:13.5px;color:rgba(245,239,230,0.9);background:rgba(255,255,255,0.06);padding:8px 10px;border-radius:8px}
+  .fb-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+  .fb-acts a{
+    flex:1 1 120px;min-height:44px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;
+    text-decoration:none;font-size:14px;font-weight:600;padding:10px 14px;
   }
 
-  body.mobile footer{display:none}
-  body.mobile .mbar{display:flex}
-  body.mobile .detail{
-    width:100vw;left:0;right:0;top:auto;bottom:0;transform:translateY(100%);
-    padding:16px;z-index:40;max-height:85vh;overflow-y:auto;
+  /* ---------- page footer disclaimer & contacts ---------- */
+  .page-footer{
+    background:#0c111a;border-top:1px solid rgba(212,175,55,0.2);
+    padding:20px clamp(16px,3vw,36px) calc(24px + env(safe-area-inset-bottom));
+    font-size:13.5px;color:rgba(245,239,230,0.78);
   }
-  body.mobile .detail.on{transform:translateY(0)}
-  body.mobile .detail-card{padding:24px 20px;border-radius:16px 16px 0 0}
-  body.mobile .service-features{grid-template-columns:1fr}
-  body.mobile .shelf-instructions{display:none}
+  .page-footer-inner{
+    max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;
+  }
+  .page-footer a{color:var(--gold-bright);text-decoration:underline}
 
-  /* Loader */
+  /* ---------- loader ---------- */
   .loader{
     position:fixed;inset:0;z-index:100;display:flex;flex-direction:column;
-    align-items:center;justify-content:center;gap:16px;
-    background:#0f131c;color:#fff;transition:opacity .6s linear;pointer-events:none;
+    align-items:center;justify-content:center;gap:14px;
+    background:#0f131c;color:#fff;transition:opacity .45s linear;
   }
-  .loader.gone{opacity:0}
-  .loader-logo{width:56px;height:56px;border-radius:12px;border:2px solid var(--gold);box-shadow:0 0 24px var(--gold-glow)}
-  .loader-title{font-family:'Cinzel',serif;font-size:18px;letter-spacing:.14em;color:var(--gold)}
-  .loader-sub{font-size:12px;color:rgba(255,255,255,0.5);letter-spacing:.08em;text-transform:uppercase}
-  .bar{width:180px;height:3px;background:rgba(255,255,255,0.1);border-radius:2px;overflow:hidden;position:relative}
+  .loader.gone{opacity:0;pointer-events:none}
+  .loader-logo{width:52px;height:52px;border-radius:12px;border:2px solid var(--gold)}
+  .loader-title{font-family:'Cinzel',serif;font-size:17px;letter-spacing:.12em;color:var(--gold-bright);text-align:center;padding:0 16px}
+  .loader-sub{font-size:12.5px;color:rgba(255,255,255,0.75);letter-spacing:.06em;text-transform:uppercase}
+  .bar{width:180px;height:3px;background:rgba(255,255,255,0.12);border-radius:2px;overflow:hidden;position:relative}
   .bar i{position:absolute;inset:0;transform-origin:left;transform:scaleX(0);background:var(--gold);transition:transform .3s ease}
+
+  @media (max-width: 900px){
+    header .nav-links{display:none}
+    .menu-toggle{display:inline-flex}
+  }
+
+  @media (max-width: 767px){
+    .brandtag{display:none}
+    .shelf-rail{display:none}
+    .mbar{display:flex}
+    .stage{height:calc(100svh - 138px);height:calc(100dvh - 138px);min-height:400px}
+    .shelf-instructions{top:10px;font-size:12px;padding:6px 12px}
+    .detail{
+      width:100%;left:0;right:0;top:auto;bottom:0;
+      transform:translateY(105%);padding:0;z-index:50;
+    }
+    .detail.on{transform:translateY(0)}
+    .detail-card{
+      padding:14px 18px calc(22px + env(safe-area-inset-bottom));
+      border-radius:20px 20px 0 0;max-height:75dvh;
+    }
+    .sheet-handle{display:block}
+    .service-features{grid-template-columns:1fr}
+    .detail .acts a, .detail .acts button{flex:1 1 130px}
+    .page-footer{padding-bottom:calc(88px + env(safe-area-inset-bottom))}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important;animation:none !important}
+  }
 </style>
 </head>
 
 <body>
 
-<canvas id="gl"></canvas>
-
 <header>
   <a class="brand" href="index.html">
-    <img src="assets/logo.jpg" alt="Logo" class="brand-logo">
+    <img src="assets/logo.jpg" alt="Chatterjee Corporate Solutions Logo" class="brand-logo" width="36" height="36">
     <div class="brand-text">
       <div class="brandname">Chatterjee <span>Corporate</span></div>
       <div class="brandtag">Business · Compliance · Financial Solutions</div>
     </div>
   </a>
 
-  <div class="nav-links">
-    <a class="pill" href="index.html">
-      <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-      College Admissions Desk
-    </a>
-    <a class="pill" href="tel:+918617607380">
-      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-      +91 861 760 7380
-    </a>
-    <a class="pill gold" href="https://wa.me/918617607380?text=Hello%20Chatterjee%20Corporate%20Solutions%2C%20I%20need%20assistance%20with%20corporate%20and%20compliance%20services." target="_blank">
-      <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+  <nav class="nav-links" aria-label="Services navigation">
+    <a class="pill" href="index.html">College Admissions Desk</a>
+    <a class="pill" id="hdr-phone-1" href="tel:+918617607380">+91 861 760 7380</a>
+    <a class="pill" id="hdr-phone-2" href="tel:+916294062517">+91 62940 62517</a>
+    <a class="pill gold" id="hdr-wa" href="https://wa.me/918617607380?text=Hello%20Chatterjee%20Corporate%20Solutions%2C%20I%20need%20assistance%20with%20corporate%20and%20compliance%20services." target="_blank" rel="noopener noreferrer">
       Get Free Consultation
     </a>
-  </div>
+  </nav>
+
+  <button type="button" class="menu-toggle" id="menuToggleBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  </button>
 </header>
 
-<div class="shelf-instructions" id="shelf-instr">
-  <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-  <span>Interactive 3D Practice Shelf: Click any volume to examine service deliverables & fee scope</span>
+<div class="mobile-nav-drawer" id="mobileNavDrawer" role="dialog" aria-modal="true" aria-label="Services menu">
+  <div class="mobile-nav-panel">
+    <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,0.12);padding-bottom:10px;">
+      <strong style="font-family:'Cinzel',serif;color:var(--gold-bright);">Menu</strong>
+      <button type="button" id="menuCloseBtn" aria-label="Close menu" style="background:none;border:none;color:#fff;font-size:24px;cursor:pointer;padding:4px 8px;">×</button>
+    </div>
+    <a class="pill" href="index.html">College Admissions Desk</a>
+    <a class="pill" id="mob-phone-1" href="tel:+918617607380">Call +91 861 760 7380</a>
+    <a class="pill" id="mob-phone-2" href="tel:+916294062517">Call +91 62940 62517</a>
+    <a class="pill gold" id="mob-wa" href="https://wa.me/918617607380" target="_blank" rel="noopener noreferrer">WhatsApp Consultation</a>
+  </div>
 </div>
+
+<main>
+  <!-- 3D Shelf Stage -->
+  <section class="stage" id="stage" aria-label="Interactive 3D Practice Shelf">
+    <canvas id="gl"></canvas>
+
+    <div class="shelf-instructions" id="shelf-instr">
+      <span id="shelf-instr-txt">Click any volume to examine service deliverables &amp; timelines</span>
+    </div>
+
+    <div class="shelf-arrows" id="shelf-arrows">
+      <button type="button" class="arrow-btn" id="prevVolBtn" aria-label="Previous service volume">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button type="button" class="arrow-btn" id="nextVolBtn" aria-label="Next service volume">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+
+    <div class="shelf-rail" id="shelf-rail">
+      <div class="tl" id="tl"></div>
+    </div>
+  </section>
+
+  <!-- 2D Fallback / SEO & Accessibility Services Directory -->
+  <section class="fallback-wrap sr-only" id="fallback-section" aria-label="Corporate &amp; Compliance Services Directory">
+    <div class="fallback-head">
+      <h1>Corporate, Compliance &amp; Financial Services</h1>
+      <p>Select any practice area below to call or enquire on WhatsApp.</p>
+    </div>
+    <div class="fallback-grid" id="fallback-grid"></div>
+  </section>
+</main>
 
 <div class="wash" id="wash" aria-hidden="true"></div>
 
-<!-- Left Detail Panel -->
-<div class="detail" id="detail">
-  <div class="detail-card">
+<!-- Detail Panel (Desktop left card / Mobile bottom sheet) -->
+<div class="detail" id="detail" role="dialog" aria-modal="true" aria-labelledby="detail-title">
+  <div class="detail-card" id="detail-card">
+    <div class="sheet-handle" aria-hidden="true"></div>
+    <button type="button" class="sheet-close-x" id="detail-close-x" aria-label="Close details">×</button>
     <div class="meta" id="detail-meta">
       <span class="badge" id="detail-vol">VOL I</span>
-      <span id="detail-cat">Corporate Formation</span>
+      <span id="detail-cat">Entity Incorporation</span>
     </div>
     <h2 id="detail-title">Company Registration</h2>
-    <div class="subhead" id="detail-sub">Pvt Ltd · LLP · OPC · Section 8 · MSME</div>
-    <p id="detail-desc">End-to-end legal incorporation with MCA approval, DIN allotment, Name Approval, MoA/AoA drafting, PAN, TAN, and bank account setup.</p>
-    
+    <div class="subhead" id="detail-sub">Pvt Ltd · LLP · OPC · Section 8 · Partnership</div>
+    <p id="detail-desc"></p>
+
     <div class="tat-row">
-      <span>Turnaround Time: <strong id="detail-tat">5 - 7 Working Days</strong></span>
-      <span>Official Portal: <strong id="detail-portal">MCA V3 / Gov. of India</strong></span>
+      <span>Turnaround: <strong id="detail-tat">4 - 7 Working Days</strong></span>
+      <span>Official Portal: <strong id="detail-portal">MCA V3 Portal</strong></span>
     </div>
 
-    <ul class="service-features" id="detail-feats">
-      <!-- filled dynamically -->
-    </ul>
+    <ul class="service-features" id="detail-feats"></ul>
 
     <div class="acts">
-      <a class="btn-wa" id="detail-wa" href="#" target="_blank">
-        <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+      <a class="btn-wa" id="detail-wa" href="https://wa.me/918617607380" target="_blank" rel="noopener noreferrer">
         <span>Enquire on WhatsApp</span>
       </a>
-      <a class="btn-call" href="tel:+918617607380">
-        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-        <span>Call +91 861 760 7380</span>
+      <a class="btn-call" id="detail-call" href="tel:+918617607380">
+        <span>Call Now</span>
       </a>
-      <button class="btn-close" id="detail-close">Close View</button>
+      <button type="button" class="btn-close" id="detail-close">Close</button>
     </div>
   </div>
 </div>
 
-<div class="hint" id="hint">
+<div class="hint" id="hint" aria-hidden="true">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-  <span id="hint-txt">Click to inspect practice</span>
+  <span id="hint-txt">Inspect practice</span>
 </div>
 
-<!-- Bottom Shelf Navigation -->
-<footer>
-  <div class="tl" id="tl"></div>
-</footer>
-
-<!-- Mobile Bottom Drawer Bar -->
+<!-- Mobile Bottom Bar -->
 <div class="mbar" id="mbar">
   <div class="mbar-txt">
     <p id="mbar-vol">VOLUME I</p>
     <h2 id="mbar-title">Company Registration</h2>
   </div>
   <div class="mbar-acts">
-    <button class="pill" id="mbar-inspect" style="background:#202838;color:#fff">Details</button>
-    <a class="pill gold" id="mbar-wa" href="#" target="_blank">WhatsApp</a>
+    <button type="button" class="pill" id="mbar-inspect" style="background:#202838;color:#fff">Details</button>
+    <a class="pill gold" id="mbar-wa" href="https://wa.me/918617607380" target="_blank" rel="noopener noreferrer">WhatsApp</a>
   </div>
 </div>
 
+<footer class="page-footer">
+  <div class="page-footer-inner">
+    <div>Independent consultancy, not affiliated with any government department. Timelines and fees are indicative and depend on official processing.</div>
+    <div id="footer-contacts">
+      <a href="index.html">College Admissions Desk</a> ·
+      <a href="tel:+918617607380">+91 861 760 7380</a> ·
+      <a href="tel:+916294062517">+91 62940 62517</a>
+    </div>
+  </div>
+</footer>
+
 <!-- Loader -->
 <div class="loader" id="loader">
-  <img src="assets/logo.jpg" alt="Logo" class="loader-logo">
+  <img src="assets/logo.jpg" alt="Logo" class="loader-logo" width="52" height="52">
   <div class="loader-title">CHATTERJEE CORPORATE SOLUTIONS</div>
   <div class="loader-sub">Preparing 3D Practice Shelf...</div>
   <div class="bar"><i id="barfill"></i></div>
 </div>
 
-<!-- Three.js CDN -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/site-config.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
 
 <script>
-/* ════════════════════════════════════════════════════════════════════════
-   1 · CORPORATE PRACTICE VOLUMES (17 Services from Chatterjee Consultancy)
-   ════════════════════════════════════════════════════════════════════════ */
-const SERVICES = [
-  {
-    id: 'company-reg',
-    vol: 'I',
-    shelf: 0, slot: 0,
-    title: 'Company Registration',
-    cat: 'Entity Incorporation',
-    sub: 'Pvt Ltd · LLP · OPC · Section 8 · Partnership',
-    spineColor: '#121e33', clothColor: '#0a101d', goldTint: '#dfb84d',
-    blurb: 'Fast, seamless incorporation for Private Limited, Limited Liability Partnerships, One Person Companies and Section 8 non-profits. We handle SPICe+ filing, DIN, Name Reservation, MoA/AoA, and statutory bank setup.',
-    tat: '4 - 7 Working Days',
-    portal: 'MCA V3 Portal',
-    features: [
-      'Name Approval & RUN Search',
-      'SPICe+ Part A & B MCA Submission',
-      'Digital Signature (DSC Class 3)',
-      'MoA, AoA & By-laws Drafting',
-      'PAN, TAN & Bank Account Kit',
-      'Certificate of Incorporation (COI)'
-    ]
-  },
-  {
-    id: 'gst-solutions',
-    vol: 'II',
-    shelf: 0, slot: 1,
-    title: 'GST Registration & Filing',
-    cat: 'Indirect Taxation',
-    sub: 'New GSTIN · Monthly GSTR-1/3B · ITC Audit · LUT',
-    spineColor: '#142c22', clothColor: '#0b1913', goldTint: '#e3be56',
-    blurb: 'Full-spectrum Goods and Services Tax compliance. Fast GST registration without rejection, regular monthly/quarterly returns, input tax credit (ITC) reconciliation, E-Way Bill generation, and Letter of Undertaking for zero-rated export.',
-    tat: '2 - 4 Working Days',
-    portal: 'GSTN Government of India',
-    features: [
-      'Fresh GSTIN Registration (Aadhaar/Biometric)',
-      'Monthly GSTR-1 & GSTR-3B Filings',
-      'GSTR-2B vs Books ITC Reconciliation',
-      'Annual Return GSTR-9 / 9C Audit',
-      'Export Letter of Undertaking (LUT)',
-      'GST Departmental Notice & DRC-01 Replies'
-    ]
-  },
-  {
-    id: 'itr-tax',
-    vol: 'III',
-    shelf: 0, slot: 2,
-    title: 'ITR Filing & Direct Tax',
-    cat: 'Direct Taxation',
-    sub: 'Individual · Corporate · Audit Cases · TDS',
-    spineColor: '#36151a', clothColor: '#1d0b0e', goldTint: '#e7bf5b',
-    blurb: 'Precision Income Tax Return preparation for individuals, salaried employees, proprietary businesses, LLPs, and Private Limited companies. Legally maximize deductions under 80C to 80U, verify 26AS/AIS, and handle scrutiny notices.',
-    tat: '24 - 48 Hours',
-    portal: 'Income Tax e-Filing 2.0',
-    features: [
-      'ITR-1, 2, 3, 4, 5, 6 e-Filing',
-      'Capital Gains & Stock Portfolio Taxing',
-      'AIS / TIS / 26AS Comprehensive Mapping',
-      'Quarterly TDS Returns (24Q, 26Q, 27Q)',
-      'Advance Tax Computation & Guidance',
-      'Defective Return & 143(1) Notice Reply'
-    ]
-  },
-  {
-    id: 'audit-financials',
-    vol: 'IV',
-    shelf: 0, slot: 3,
-    title: 'Audit & Financial Reports',
-    cat: 'Assurance & Accounting',
-    sub: 'Statutory Audit · Tax Audit 44AB · CMA Data',
-    spineColor: '#20252e', clothColor: '#11141a', goldTint: '#d8b04a',
-    blurb: 'Independent, rigorous auditing and accounting compliance. Statutory financial statement preparation, Section 44AB Tax Audits, internal management controls review, balance sheet drafting, and ROC certification with verified UDIN.',
-    tat: '7 - 10 Working Days',
-    portal: 'ICAI / MCA Compliant',
-    features: [
-      'Company Statutory Audit Reporting',
-      'Section 44AB Income Tax Audit',
-      'Balance Sheet & Profit/Loss Compilation',
-      'Internal & Operational Risk Audits',
-      'Fixed Asset & Inventory Stock Verification',
-      'Chartered Accountant Sign-off & UDIN'
-    ]
-  },
-  {
-    id: 'trademark-ip',
-    vol: 'V',
-    shelf: 0, slot: 4,
-    title: 'Trademark & Brand IP',
-    cat: 'Intellectual Property',
-    sub: 'TM Application · Logo & Brand · Copyright',
-    spineColor: '#3d1c14', clothColor: '#200e0a', goldTint: '#edc460',
-    blurb: 'Protect your unique brand identity, company name, logo, slogan, and artistic works from unauthorized infringement. Full public search, Nice Class 1-45 classification, instant ™ use permission, and examination hearings.',
-    tat: '24 Hours for TM Application',
-    portal: 'IP India / Controller General',
-    features: [
-      'Comprehensive Pre-Filing TM Search',
-      'Online TM-A Filing (Immediate ™ Permission)',
-      'Trademark Examination Report Reply',
-      'Hearing Representation & Opposition',
-      'Logo & Literary Copyright Registration',
-      'Registered Trademark ® Certificate'
-    ]
-  },
+(function () {
+  "use strict";
 
-  /* SHELF 1 (Bottom Row) */
-  {
-    id: 'trade-ptax',
-    vol: 'VI',
-    shelf: 1, slot: 0,
-    title: 'Trade Licence & Ptax',
-    cat: 'Municipal & State Compliances',
-    sub: 'KMC / CE · Municipal Clearances · Ptax Enrolment',
-    spineColor: '#242a1a', clothColor: '#12160d', goldTint: '#e0b852',
-    blurb: 'Mandatory municipal operating permits across West Bengal. Certificate of Enlistment (CE) from Kolkata Municipal Corporation (KMC) or district municipalities, fire clearances, and West Bengal Professional Tax (Ptax) enrolment.',
-    tat: '3 - 5 Working Days',
-    portal: 'West Bengal Silpa Sathi / KMC',
-    features: [
-      'KMC Certificate of Enlistment (CE)',
-      'Municipal & Panchayat Trade Licences',
-      'Ptax Enrolment (EC) & Registration (RC)',
-      'Annual Ptax Challan & Return Filing',
-      'Trade Licence Category Upgrades',
-      'Timely Annual Renewal Service'
-    ]
-  },
-  {
-    id: 'msme-project',
-    vol: 'VII',
-    shelf: 1, slot: 1,
-    title: 'MSME & Bank Project Reports',
-    cat: 'Banking & Subsidies',
-    sub: 'Udyam Certificate · CMA Data · Loan DPR',
-    spineColor: '#382515', clothColor: '#1e140b', goldTint: '#e8c05c',
-    blurb: 'Unlock central & state government MSME subsidies and low-interest priority credit. Udyam registration, 5-year Detailed Project Reports (DPR), CMA data for Cash Credit/OD limits, PMEGP, Mudra, and Bhabishyat Credit Card schemes.',
-    tat: '3 - 5 Working Days',
-    portal: 'Udyam Registration & National Banks',
-    features: [
-      'Instant Udyam MSME Registration',
-      'Bank-Ready Detailed Project Report (DPR)',
-      'CMA Data for Working Capital / Term Loans',
-      'Debt Service Coverage (DSCR) Modelling',
-      'PMEGP & Govt Subsidy Documentation',
-      'Mudra & Startup Loan Project Files'
-    ]
-  },
-  {
-    id: 'fssai-drug',
-    vol: 'VIII',
-    shelf: 1, slot: 2,
-    title: 'FSSAI & Drug Licences',
-    cat: 'Food & Pharma Licences',
-    sub: 'Food Safety Basic/State/Central · Pharmacy 20/21',
-    spineColor: '#112b2e', clothColor: '#09181a', goldTint: '#dfb74f',
-    blurb: 'Statutory approvals for restaurants, food manufacturers, cloud kitchens, and pharmaceutical distributors. FSSAI Basic, State, and Central licences, plus retail/wholesale allopathic & Ayurvedic drug licences (Form 20 & 21).',
-    tat: '7 - 14 Working Days',
-    portal: 'FoSCoS & State Drug Directorate',
-    features: [
-      'FSSAI Basic Food Business Registration',
-      'FSSAI State & Central Food Manufacturing Licence',
-      'Form 20 & 21 Pharmacy Drug Licences',
-      'Premise Layout & Cold-Chain Verification',
-      'Registered Pharmacist Mapping',
-      'Annual FSSAI Food Returns (Form D1)'
-    ]
-  },
-  {
-    id: 'iso-standards',
-    vol: 'IX',
-    shelf: 1, slot: 3,
-    title: 'ISO Certification',
-    cat: 'Quality & Global Standards',
-    sub: 'ISO 9001 · 14001 · 27001 · 22000 · GMP',
-    spineColor: '#172036', clothColor: '#0d121f', goldTint: '#dfb74f',
-    blurb: 'Elevate corporate credibility and qualify for high-value government tenders with internationally accredited ISO certifications. Complete standard manual preparation, gap analysis, and Stage 1 & 2 audit clearance.',
-    tat: '5 - 7 Working Days',
-    portal: 'IAF / Recognized Certification Bodies',
-    features: [
-      'ISO 9001:2015 Quality Management System (QMS)',
-      'ISO 14001:2015 Environmental Management (EMS)',
-      'ISO 27001 Information Security (ISMS)',
-      'ISO 22000 & HACCP Food Safety Systems',
-      'Standard Operating Procedures (SOP) Manual',
-      'Auditor Clearance & Verifiable QR Certificate'
-    ]
-  },
-  {
-    id: 'ngo-labour-iec',
-    vol: 'X',
-    shelf: 1, slot: 4,
-    title: 'NGO, Labour & IEC Code',
-    cat: 'Non-Profit & Foreign Trade',
-    sub: 'Trust · 12A/80G · PF/ESI · IEC Code · Annual ROC',
-    spineColor: '#191b26', clothColor: '#0e1017', goldTint: '#e5be5a',
-    blurb: 'End-to-end solutions for social organizations and expanding enterprises. Society/Trust formation, 12A & 80G tax exemptions, CSR-1 registration, DGFT Import Export Code (IEC), PF & ESI labour registrations, and annual ROC filings.',
-    tat: '5 - 10 Working Days',
-    portal: 'DGFT / EPFO / ESIC / Income Tax',
-    features: [
-      'Public Charitable Trust & Society Registration',
-      'Section 12A & 80G Tax Exemption Approval',
-      'Ministry of Corporate Affairs CSR-1 Registration',
-      'DGFT Import Export Code (IEC) Issuance',
-      'EPF & ESIC Employer Registration Kit',
-      'Annual ROC Compliance & AOC-4/MGT-7 Filing'
-    ]
-  }
-];
+  const SITE = window.SITE || {};
+  const P1_DISP = SITE.PHONE_PRIMARY_DISPLAY || "+91 861 760 7380";
+  const P1_TEL = SITE.PHONE_PRIMARY_TEL || "+918617607380";
+  const P2_DISP = SITE.PHONE_SECONDARY_DISPLAY || "+91 62940 62517";
+  const P2_TEL = SITE.PHONE_SECONDARY_TEL || "+916294062517";
+  const WA_NUM = SITE.WHATSAPP_NUMBER || "918617607380";
 
-/* ════════════════════════════════════════════════════════════════════════
-   2 · TEXTURE BUILDER: ELEGANT LEATHER & GOLD EMBOSSED BOOKS
-   ════════════════════════════════════════════════════════════════════════ */
-function makeSpineTexture(s) {
-  const canvas = document.createElement('canvas');
-  canvas.width = 128;
-  canvas.height = 1024;
-  const ctx = canvas.getContext('2d');
-
-  // Spine gradient background
-  const grad = ctx.createLinearGradient(0, 0, 128, 0);
-  grad.addColorStop(0, '#0a0d13');
-  grad.addColorStop(0.2, s.spineColor);
-  grad.addColorStop(0.65, s.spineColor);
-  grad.addColorStop(0.85, '#2a3548');
-  grad.addColorStop(1, '#05070a');
-  ctx.fillStyle = grad;
-  ctx.fillRect(0, 0, 128, 1024);
-
-  // Subtle leather texture noise
-  ctx.fillStyle = 'rgba(255,255,255,0.03)';
-  for (let y = 0; y < 1024; y += 4) {
-    ctx.fillRect(0, y, 128, 1);
+  function makeWaHref(serviceName, cat) {
+    const msg = serviceName
+      ? "Hello Chatterjee Corporate Solutions, I would like to enquire about " + serviceName + (cat ? " (" + cat + ")" : "") + ". Please share required documents and fee scope."
+      : "Hello Chatterjee Corporate Solutions, I need assistance with corporate and compliance services.";
+    return "https://wa.me/" + WA_NUM + "?text=" + encodeURIComponent(msg);
   }
 
-  // Gold foil ribs / bands
-  function drawRib(y) {
-    const rGrad = ctx.createLinearGradient(0, y, 0, y + 8);
-    rGrad.addColorStop(0, '#755418');
-    rGrad.addColorStop(0.5, '#f5d878');
-    rGrad.addColorStop(1, '#5e410f');
-    ctx.fillStyle = rGrad;
-    ctx.fillRect(10, y, 108, 8);
-    ctx.strokeStyle = 'rgba(0,0,0,0.5)';
-    ctx.lineWidth = 1;
-    ctx.strokeRect(10, y, 108, 8);
-  }
-  drawRib(60);
-  drawRib(76);
-  drawRib(930);
-  drawRib(946);
+  // Hydrate shared contact numbers
+  const setLink = (id, href, text) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    if (href) el.href = href;
+    if (text) el.textContent = text;
+  };
+  setLink("hdr-phone-1", "tel:" + P1_TEL, P1_DISP);
+  setLink("hdr-phone-2", "tel:" + P2_TEL, P2_DISP);
+  setLink("hdr-wa", makeWaHref(null));
+  setLink("mob-phone-1", "tel:" + P1_TEL, "Call " + P1_DISP);
+  setLink("mob-phone-2", "tel:" + P2_TEL, "Call " + P2_DISP);
+  setLink("mob-wa", makeWaHref(null));
+  setLink("detail-call", "tel:" + P1_TEL, "Call " + P1_DISP);
+  setLink("detail-wa", makeWaHref("Company Registration", "Entity Incorporation"));
+  setLink("mbar-wa", makeWaHref("Company Registration", "Entity Incorporation"));
 
-  // Volume number
-  ctx.fillStyle = s.goldTint;
-  ctx.textAlign = 'center';
-  ctx.font = 'bold 26px Cinzel, serif';
-  ctx.fillText('VOL ' + s.vol, 64, 150);
-
-  // Decorative diamond crest
-  ctx.beginPath();
-  ctx.moveTo(64, 175);
-  ctx.lineTo(76, 187);
-  ctx.lineTo(64, 199);
-  ctx.lineTo(52, 187);
-  ctx.closePath();
-  ctx.fillStyle = s.goldTint;
-  ctx.fill();
-
-  // Vertical spine title
-  ctx.save();
-  ctx.translate(64, 550);
-  ctx.rotate(-Math.PI / 2);
-  ctx.textAlign = 'center';
-  ctx.font = '600 34px "EB Garamond", Georgia, serif';
-  ctx.fillStyle = '#fff9e8';
-  ctx.shadowColor = 'rgba(0,0,0,0.8)';
-  ctx.shadowBlur = 6;
-  ctx.fillText(s.title.toUpperCase(), 0, 10);
-  ctx.restore();
-
-  // Bottom brand mark
-  ctx.fillStyle = s.goldTint;
-  ctx.font = 'bold 15px Inter, sans-serif';
-  ctx.fillText('CHATTERJEE', 64, 880);
-  ctx.font = '11px Inter, sans-serif';
-  ctx.fillStyle = 'rgba(255,255,255,0.7)';
-  ctx.fillText('CORPORATE', 64, 898);
-
-  return new THREE.CanvasTexture(canvas);
-}
-
-function makeCoverTexture(s) {
-  const canvas = document.createElement('canvas');
-  canvas.width = 680;
-  canvas.height = 1024;
-  const ctx = canvas.getContext('2d');
-
-  // Deep cloth background
-  const grad = ctx.createLinearGradient(0, 0, 680, 1024);
-  grad.addColorStop(0, s.clothColor);
-  grad.addColorStop(1, '#05070a');
-  ctx.fillStyle = grad;
-  ctx.fillRect(0, 0, 680, 1024);
-
-  // Subtle fabric mesh
-  ctx.fillStyle = 'rgba(255,255,255,0.025)';
-  for (let x = 0; x < 680; x += 4) {
-    ctx.fillRect(x, 0, 1, 1024);
-  }
-  for (let y = 0; y < 1024; y += 4) {
-    ctx.fillRect(0, y, 680, 1);
+  const footerContacts = document.getElementById("footer-contacts");
+  if (footerContacts) {
+    footerContacts.innerHTML =
+      '<a href="index.html">College Admissions Desk</a> · ' +
+      '<a href="tel:' + P1_TEL + '">' + P1_DISP + '</a> · ' +
+      '<a href="tel:' + P2_TEL + '">' + P2_DISP + '</a>';
   }
 
-  // Outer gold foil double border
-  ctx.strokeStyle = s.goldTint;
-  ctx.lineWidth = 3;
-  ctx.strokeRect(36, 36, 608, 952);
-  ctx.lineWidth = 1;
-  ctx.strokeRect(46, 46, 588, 932);
-
-  // Corner ornaments
-  function drawCorner(x, y, flipX, flipY) {
-    ctx.save();
-    ctx.translate(x, y);
-    ctx.scale(flipX, flipY);
-    ctx.strokeStyle = s.goldTint;
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(10, 10);
-    ctx.lineTo(40, 10);
-    ctx.moveTo(10, 10);
-    ctx.lineTo(10, 40);
-    ctx.stroke();
-    ctx.restore();
+  // Mobile header menu drawer
+  const menuBtn = document.getElementById("menuToggleBtn");
+  const menuClose = document.getElementById("menuCloseBtn");
+  const drawer = document.getElementById("mobileNavDrawer");
+  function setMenuOpen(open) {
+    drawer.classList.toggle("open", open);
+    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
   }
-  drawCorner(46, 46, 1, 1);
-  drawCorner(634, 46, -1, 1);
-  drawCorner(46, 978, 1, -1);
-  drawCorner(634, 978, -1, -1);
+  menuBtn.addEventListener("click", () => setMenuOpen(true));
+  menuClose.addEventListener("click", () => setMenuOpen(false));
+  drawer.addEventListener("click", (e) => { if (e.target === drawer) setMenuOpen(false); });
 
-  // Top header
-  ctx.textAlign = 'center';
-  ctx.fillStyle = s.goldTint;
-  ctx.font = '600 16px "Cinzel", serif';
-  ctx.letterSpacing = '3px';
-  ctx.fillText('CHATTERJEE CORPORATE SOLUTIONS', 340, 110);
-  ctx.font = '500 12px Inter, sans-serif';
-  ctx.fillStyle = 'rgba(255,255,255,0.6)';
-  ctx.fillText('BUSINESS · COMPLIANCE · FINANCIAL SOLUTIONS', 340, 134);
-
-  // Decorative separator
-  ctx.strokeStyle = s.goldTint;
-  ctx.lineWidth = 1;
-  ctx.beginPath();
-  ctx.moveTo(220, 155);
-  ctx.lineTo(460, 155);
-  ctx.stroke();
-
-  // Large Gold Shield Crest in the center
-  ctx.save();
-  ctx.translate(340, 320);
-  
-  // Shield path
-  ctx.beginPath();
-  ctx.moveTo(0, -90);
-  ctx.lineTo(75, -55);
-  ctx.lineTo(75, 25);
-  ctx.quadraticCurveTo(75, 80, 0, 110);
-  ctx.quadraticCurveTo(-75, 80, -75, 25);
-  ctx.lineTo(-75, -55);
-  ctx.closePath();
-  
-  const sGrad = ctx.createLinearGradient(-75, -90, 75, 110);
-  sGrad.addColorStop(0, '#f9dd7b');
-  sGrad.addColorStop(0.5, '#c99e30');
-  sGrad.addColorStop(1, '#815e14');
-  ctx.fillStyle = sGrad;
-  ctx.fill();
-
-  ctx.lineWidth = 4;
-  ctx.strokeStyle = '#fff5cf';
-  ctx.stroke();
-
-  // Growth bars inside the shield
-  ctx.fillStyle = '#0d1627';
-  ctx.fillRect(-40, 15, 16, 25);
-  ctx.fillRect(-18, -5, 16, 45);
-  ctx.fillRect(4, -30, 16, 70);
-  ctx.fillRect(26, -55, 16, 95);
-
-  // Ascending checkmark
-  ctx.strokeStyle = '#f8df81';
-  ctx.lineWidth = 6;
-  ctx.lineCap = 'round';
-  ctx.beginPath();
-  ctx.moveTo(-35, 10);
-  ctx.lineTo(-10, 40);
-  ctx.lineTo(46, -40);
-  ctx.stroke();
-  ctx.restore();
-
-  // Volume identifier
-  ctx.fillStyle = s.goldTint;
-  ctx.font = 'bold 20px "Cinzel", serif';
-  ctx.fillText('PRACTICE DOSSIER · VOL ' + s.vol, 340, 520);
-
-  // Big Service Title
-  ctx.fillStyle = '#ffffff';
-  ctx.font = '600 42px "EB Garamond", Georgia, serif';
-  ctx.shadowColor = 'rgba(0,0,0,0.9)';
-  ctx.shadowBlur = 10;
-  ctx.fillText(s.title, 340, 590);
-  ctx.shadowBlur = 0;
-
-  // Subtitle category
-  ctx.font = '500 16px Inter, sans-serif';
-  ctx.fillStyle = s.goldTint;
-  ctx.fillText(s.cat.toUpperCase(), 340, 630);
-
-  // Feature bullets summary on cover
-  ctx.font = '400 14px Inter, sans-serif';
-  ctx.fillStyle = 'rgba(255,255,255,0.75)';
-  const lines = s.sub.split(' · ');
-  lines.forEach((line, i) => {
-    ctx.fillText('• ' + line, 340, 690 + (i * 24));
-  });
-
-  // Bottom Tagline
-  ctx.fillStyle = s.goldTint;
-  ctx.font = 'italic 16px "EB Garamond", serif';
-  ctx.fillText('“Your Growth, Our Expertise”', 340, 890);
-
-  // Bottom Contact
-  ctx.font = '600 13px Inter, sans-serif';
-  ctx.fillStyle = '#ffffff';
-  ctx.fillText('+91 861 760 7380', 340, 930);
-
-  return new THREE.CanvasTexture(canvas);
-}
-
-function makePageTexture() {
-  const canvas = document.createElement('canvas');
-  canvas.width = 128;
-  canvas.height = 128;
-  const ctx = canvas.getContext('2d');
-  ctx.fillStyle = '#e8dec7';
-  ctx.fillRect(0, 0, 128, 128);
-  ctx.fillStyle = 'rgba(0,0,0,0.06)';
-  for (let i = 0; i < 128; i += 2) {
-    ctx.fillRect(0, i, 128, 1);
-  }
-  return new THREE.CanvasTexture(canvas);
-}
-
-/* ════════════════════════════════════════════════════════════════════════
-   3 · THREE.JS SCENE SETUP & BOOKSHELF
-   ════════════════════════════════════════════════════════════════════════ */
-const canvas = document.getElementById('gl');
-const scene = new THREE.Scene();
-
-// Camera
-const camera = new THREE.PerspectiveCamera(24, window.innerWidth / window.innerHeight, 0.1, 100);
-camera.position.set(0, 0, 7.8);
-
-// Renderer
-const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
-
-// Lighting
-const ambient = new THREE.AmbientLight(0xffffff, 0.7);
-scene.add(ambient);
-
-const dirLight = new THREE.DirectionalLight(0xfff3d6, 1.2);
-dirLight.position.set(5, 8, 8);
-dirLight.castShadow = true;
-dirLight.shadow.mapSize.width = 1024;
-dirLight.shadow.mapSize.height = 1024;
-dirLight.shadow.camera.near = 0.5;
-dirLight.shadow.camera.far = 25;
-scene.add(dirLight);
-
-const rimLight = new THREE.DirectionalLight(0x7090c0, 0.6);
-rimLight.position.set(-6, -2, -3);
-scene.add(rimLight);
-
-const warmFill = new THREE.PointLight(0xd4af37, 1.5, 12);
-warmFill.position.set(0, 1.5, 3.5);
-scene.add(warmFill);
-
-// Shelf dimensions
-const SHELF_CONFIG = {
-  topY: [0.95, -0.65],
-  shelfWidth: 7.2,
-  shelfHeight: 0.12,
-  shelfDepth: 1.4,
-  bookW: 0.88,
-  bookH: 1.32,
-  bookD: 0.18,
-  slotSpacing: 1.32
-};
-
-// Shelves group
-const shelfGroup = new THREE.Group();
-scene.add(shelfGroup);
-
-// Wood texture for shelves
-function makeWoodTexture() {
-  const c = document.createElement('canvas');
-  c.width = 512; c.height = 512;
-  const ctx = c.getContext('2d');
-  ctx.fillStyle = '#18120c';
-  ctx.fillRect(0, 0, 512, 512);
-  ctx.fillStyle = 'rgba(212,175,55,0.06)';
-  for (let i = 0; i < 512; i += 3) {
-    ctx.fillRect(0, i, 512, 1);
-  }
-  return new THREE.CanvasTexture(c);
-}
-const woodTex = makeWoodTexture();
-const shelfMat = new THREE.MeshStandardMaterial({
-  color: 0x1f1710,
-  roughness: 0.6,
-  metalness: 0.1,
-  map: woodTex
-});
-
-// Create 2 Shelf Planks
-SHELF_CONFIG.topY.forEach(y => {
-  const plankGeo = new THREE.BoxGeometry(SHELF_CONFIG.shelfWidth, SHELF_CONFIG.shelfHeight, SHELF_CONFIG.shelfDepth);
-  const plank = new THREE.Mesh(plankGeo, shelfMat);
-  plank.position.set(0, y - SHELF_CONFIG.shelfHeight / 2, 0);
-  plank.receiveShadow = true;
-  shelfGroup.add(plank);
-
-  // Shelf front brass inlay
-  const brassGeo = new THREE.BoxGeometry(SHELF_CONFIG.shelfWidth, 0.02, 0.02);
-  const brassMat = new THREE.MeshStandardMaterial({ color: 0xd4af37, roughness: 0.3, metalness: 0.8 });
-  const brass = new THREE.Mesh(brassGeo, brassMat);
-  brass.position.set(0, y - 0.01, SHELF_CONFIG.shelfDepth / 2 + 0.005);
-  shelfGroup.add(brass);
-});
-
-// Book objects array
-const bookMeshes = [];
-const pageTex = makePageTexture();
-
-SERVICES.forEach((service, index) => {
-  const spineTex = makeSpineTexture(service);
-  const coverTex = makeCoverTexture(service);
-
-  const materials = [
-    new THREE.MeshStandardMaterial({ map: pageTex, roughness: 0.9 }),       // right edge (pages)
-    new THREE.MeshStandardMaterial({ map: spineTex, roughness: 0.5 }),       // left edge (spine)
-    new THREE.MeshStandardMaterial({ map: pageTex, roughness: 0.9 }),       // top edge (pages)
-    new THREE.MeshStandardMaterial({ map: pageTex, roughness: 0.9 }),       // bottom edge (pages)
-    new THREE.MeshStandardMaterial({ map: coverTex, roughness: 0.4 }),      // front cover
-    new THREE.MeshStandardMaterial({ color: service.clothColor, roughness: 0.7 }) // back cover
+  const SERVICES = [
+    {
+      id: 'company-reg', vol: 'I', shelf: 0, slot: 0,
+      title: 'Company Registration', cat: 'Entity Incorporation',
+      sub: 'Pvt Ltd · LLP · OPC · Section 8 · Partnership',
+      spineColor: '#121e33', clothColor: '#0a101d', goldTint: '#dfb84d',
+      blurb: 'End-to-end incorporation for Private Limited, LLP, One Person Company, and Section 8 non-profits including SPICe+ filing, DIN, Name Reservation, MoA/AoA, and bank setup.',
+      tat: '4 - 7 Working Days', portal: 'MCA V3 Portal',
+      features: ['Name Approval & RUN Search', 'SPICe+ Part A & B Submission', 'Digital Signature (DSC Class 3)', 'MoA & AoA Drafting', 'PAN, TAN & Bank Kit', 'Certificate of Incorporation']
+    },
+    {
+      id: 'gst-solutions', vol: 'II', shelf: 0, slot: 1,
+      title: 'GST Registration & Filing', cat: 'Indirect Taxation',
+      sub: 'New GSTIN · Monthly GSTR-1/3B · ITC Audit · LUT',
+      spineColor: '#142c22', clothColor: '#0b1913', goldTint: '#e3be56',
+      blurb: 'GST registration, monthly/quarterly GSTR-1 & 3B filings, GSTR-2B ITC reconciliation, E-Way Bill setup, LUT for exports, and departmental notice replies.',
+      tat: '2 - 4 Working Days', portal: 'GSTN Portal',
+      features: ['Fresh GSTIN Registration', 'Monthly GSTR-1 & 3B Filings', 'GSTR-2B ITC Reconciliation', 'GSTR-9 / 9C Annual Return', 'Export LUT Filing', 'GST Notice Replies']
+    },
+    {
+      id: 'itr-tax', vol: 'III', shelf: 0, slot: 2,
+      title: 'ITR Filing & Direct Tax', cat: 'Direct Taxation',
+      sub: 'Individual · Corporate · Audit Cases · TDS',
+      spineColor: '#36151a', clothColor: '#1d0b0e', goldTint: '#e7bf5b',
+      blurb: 'Income Tax Return preparation for individuals, proprietors, LLPs, and companies, including AIS/26AS mapping, quarterly TDS returns, and scrutiny replies.',
+      tat: '24 - 48 Hours', portal: 'Income Tax e-Filing 2.0',
+      features: ['ITR-1 to ITR-6 e-Filing', 'Capital Gains Computation', 'AIS / TIS / 26AS Mapping', 'Quarterly TDS Returns', 'Advance Tax Guidance', '143(1) Notice Reply']
+    },
+    {
+      id: 'audit-financials', vol: 'IV', shelf: 0, slot: 3,
+      title: 'Audit & Financial Reports', cat: 'Assurance & Accounting',
+      sub: 'Statutory Audit · Tax Audit 44AB · CMA Data',
+      spineColor: '#20252e', clothColor: '#11141a', goldTint: '#d8b04a',
+      blurb: 'Statutory financial statement preparation, Section 44AB Tax Audits, balance sheet drafting, and ROC certification with verified UDIN.',
+      tat: '7 - 10 Working Days', portal: 'ICAI / MCA Compliant',
+      features: ['Statutory Audit Reporting', 'Section 44AB Tax Audit', 'Balance Sheet & P&L', 'Internal Risk Audits', 'Asset & Stock Verification', 'CA Sign-off & UDIN']
+    },
+    {
+      id: 'trademark-ip', vol: 'V', shelf: 0, slot: 4,
+      title: 'Trademark & Brand IP', cat: 'Intellectual Property',
+      sub: 'TM Application · Logo & Brand · Copyright',
+      spineColor: '#3d1c14', clothColor: '#200e0a', goldTint: '#edc460',
+      blurb: 'Brand name, logo, and slogan protection: pre-filing search, Nice Class 1-45 TM-A filing, examination report replies, and copyright registration.',
+      tat: '24 Hours for TM Filing', portal: 'IP India Portal',
+      features: ['Pre-Filing TM Search', 'Online TM-A Filing', 'Examination Report Reply', 'Hearing Representation', 'Copyright Registration', 'Registered ® Follow-up']
+    },
+    {
+      id: 'trade-ptax', vol: 'VI', shelf: 1, slot: 0,
+      title: 'Trade Licence & Ptax', cat: 'Municipal & State',
+      sub: 'KMC / CE · Municipal Clearances · Ptax Enrolment',
+      spineColor: '#242a1a', clothColor: '#12160d', goldTint: '#e0b852',
+      blurb: 'Certificate of Enlistment (CE) from KMC or West Bengal municipalities, trade licence renewals, and West Bengal Professional Tax (Ptax) enrolment.',
+      tat: '3 - 5 Working Days', portal: 'Silpa Sathi / KMC',
+      features: ['KMC Certificate of Enlistment', 'Municipal Trade Licences', 'Ptax EC & RC Enrolment', 'Annual Ptax Return Filing', 'Category Upgrades', 'Annual Renewal']
+    },
+    {
+      id: 'msme-project', vol: 'VII', shelf: 1, slot: 1,
+      title: 'MSME & Bank Project Reports', cat: 'Banking & Subsidies',
+      sub: 'Udyam Certificate · CMA Data · Loan DPR',
+      spineColor: '#382515', clothColor: '#1e140b', goldTint: '#e8c05c',
+      blurb: 'Udyam MSME registration, 5-year Detailed Project Reports (DPR), CMA data for Cash Credit/OD limits, PMEGP, Mudra, and credit card scheme files.',
+      tat: '3 - 5 Working Days', portal: 'Udyam & National Banks',
+      features: ['Udyam MSME Registration', 'Detailed Project Report (DPR)', 'CMA Data for Loans', 'DSCR Financial Modelling', 'PMEGP Documentation', 'Mudra Loan Files']
+    },
+    {
+      id: 'fssai-drug', vol: 'VIII', shelf: 1, slot: 2,
+      title: 'FSSAI & Drug Licences', cat: 'Food & Pharma',
+      sub: 'Food Safety Basic/State/Central · Form 20/21',
+      spineColor: '#112b2e', clothColor: '#09181a', goldTint: '#dfb74f',
+      blurb: 'FSSAI Basic, State, and Central food business licences, plus retail/wholesale pharmacy drug licences (Form 20 & 21) and annual returns.',
+      tat: '7 - 14 Working Days', portal: 'FoSCoS & State Drug Dept',
+      features: ['FSSAI Basic Registration', 'FSSAI State & Central Licence', 'Form 20 & 21 Drug Licences', 'Premise Layout Review', 'Pharmacist Mapping', 'Annual Form D1 Returns']
+    },
+    {
+      id: 'iso-standards', vol: 'IX', shelf: 1, slot: 3,
+      title: 'ISO Certification', cat: 'Quality Standards',
+      sub: 'ISO 9001 · 14001 · 27001 · 22000 · GMP',
+      spineColor: '#172036', clothColor: '#0d121f', goldTint: '#dfb74f',
+      blurb: 'ISO 9001, 14001, 27001, and 22000 certification support: SOP manual drafting, gap analysis, and audit clearance for corporate and tender eligibility.',
+      tat: '5 - 7 Working Days', portal: 'IAF / Accredited Bodies',
+      features: ['ISO 9001:2015 QMS', 'ISO 14001:2015 EMS', 'ISO 27001 ISMS', 'ISO 22000 Food Safety', 'SOP Manual Drafting', 'Verifiable QR Certificate']
+    },
+    {
+      id: 'ngo-labour-iec', vol: 'X', shelf: 1, slot: 4,
+      title: 'NGO, Labour & IEC Code', cat: 'Non-Profit & Trade',
+      sub: 'Trust · 12A/80G · PF/ESI · IEC · Annual ROC',
+      spineColor: '#191b26', clothColor: '#0e1017', goldTint: '#e5be5a',
+      blurb: 'Society/Trust formation, Section 12A & 80G exemptions, CSR-1 registration, DGFT Import Export Code (IEC), PF/ESI registration, and annual ROC filings.',
+      tat: '5 - 10 Working Days', portal: 'DGFT / EPFO / MCA',
+      features: ['Trust & Society Registration', '12A & 80G Approval', 'MCA CSR-1 Registration', 'DGFT IEC Issuance', 'EPF & ESIC Registration', 'AOC-4 / MGT-7 Filings']
+    }
   ];
 
-  const bookGeo = new THREE.BoxGeometry(SHELF_CONFIG.bookW, SHELF_CONFIG.bookH, SHELF_CONFIG.bookD);
-  const book = new THREE.Mesh(bookGeo, materials);
-  book.castShadow = true;
-  book.receiveShadow = true;
-
-  // Calculate shelf & slot positioning
-  const shelfY = SHELF_CONFIG.topY[service.shelf];
-  const slotX = (service.slot - 2) * SHELF_CONFIG.slotSpacing;
-  const restingY = shelfY + SHELF_CONFIG.bookH / 2;
-  const restingZ = 0.2;
-
-  // Natural resting orientation (slight spine angle)
-  const restingRotX = 0;
-  const restingRotY = 0.22;
-  const restingRotZ = -0.02;
-
-  book.position.set(slotX, restingY, restingZ);
-  book.rotation.set(restingRotX, restingRotY, restingRotZ);
-
-  // Custom data
-  book.userData = {
-    service: service,
-    index: index,
-    restingPos: new THREE.Vector3(slotX, restingY, restingZ),
-    restingRot: new THREE.Euler(restingRotX, restingRotY, restingRotZ),
-    targetPos: new THREE.Vector3(slotX, restingY, restingZ),
-    targetRot: new THREE.Euler(restingRotX, restingRotY, restingRotZ),
-    isHovered: false,
-    isActive: false
-  };
-
-  scene.add(book);
-  bookMeshes.push(book);
-});
-
-/* ════════════════════════════════════════════════════════════════════════
-   4 · INTERACTIVITY & SELECTION LOGIC
-   ════════════════════════════════════════════════════════════════════════ */
-let activeBook = null;
-let hoveredBook = null;
-const mouse = new THREE.Vector2(-100, -100);
-const raycaster = new THREE.Raycaster();
-
-const detailPanel = document.getElementById('detail');
-const detailVol = document.getElementById('detail-vol');
-const detailCat = document.getElementById('detail-cat');
-const detailTitle = document.getElementById('detail-title');
-const detailSub = document.getElementById('detail-sub');
-const detailDesc = document.getElementById('detail-desc');
-const detailTat = document.getElementById('detail-tat');
-const detailPortal = document.getElementById('detail-portal');
-const detailFeats = document.getElementById('detail-feats');
-const detailWa = document.getElementById('detail-wa');
-const wash = document.getElementById('wash');
-const hint = document.getElementById('hint');
-const hintTxt = document.getElementById('hint-txt');
-const instr = document.getElementById('shelf-instr');
-
-function selectBook(book) {
-  if (activeBook === book) return;
-
-  // Reset previous
-  if (activeBook) {
-    activeBook.userData.isActive = false;
-    activeBook.userData.targetPos.copy(activeBook.userData.restingPos);
-    activeBook.userData.targetRot.copy(activeBook.userData.restingRot);
-  }
-
-  activeBook = book;
-
-  if (activeBook) {
-    activeBook.userData.isActive = true;
-
-    // Active inspection pose in front of camera
-    const isMobile = window.innerWidth < 768;
-    const targetX = isMobile ? 0 : 0.95;
-    const targetY = isMobile ? 0.3 : 0.05;
-    const targetZ = isMobile ? 4.2 : 4.4;
-
-    activeBook.userData.targetPos.set(targetX, targetY, targetZ);
-    activeBook.userData.targetRot.set(0.08, 0.32, 0.0);
-
-    // Populate detail UI
-    const s = activeBook.userData.service;
-    detailVol.textContent = 'VOL ' + s.vol;
-    detailCat.textContent = s.cat;
-    detailTitle.textContent = s.title;
-    detailSub.textContent = s.sub;
-    detailDesc.textContent = s.blurb;
-    detailTat.textContent = s.tat;
-    detailPortal.textContent = s.portal;
-
-    // Features
-    detailFeats.innerHTML = '';
-    s.features.forEach(f => {
-      const li = document.createElement('li');
-      li.innerHTML = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>' + f + '</span>';
-      detailFeats.appendChild(li);
-    });
-
-    // WhatsApp link
-    const waText = encodeURIComponent('Hello Chatterjee Corporate Solutions, I would like to enquire about ' + s.title + ' (Ref: ' + s.cat + '). Please share documents required and quote.');
-    detailWa.href = 'https://wa.me/918617607380?text=' + waText;
-
-    // Show panels
-    detailPanel.classList.add('on');
-    wash.classList.add('on');
-    instr.classList.add('hidden');
-
-    // Update bottom rail active state
-    document.querySelectorAll('.tli').forEach((el, idx) => {
-      el.classList.toggle('active', idx === activeBook.userData.index);
-    });
-
-    // Update mobile bar
-    document.getElementById('mbar-vol').textContent = 'VOLUME ' + s.vol;
-    document.getElementById('mbar-title').textContent = s.title;
-    document.getElementById('mbar-wa').href = detailWa.href;
-  } else {
-    detailPanel.classList.remove('on');
-    wash.classList.remove('on');
-    instr.classList.remove('hidden');
-    document.querySelectorAll('.tli').forEach(el => el.classList.remove('active'));
-  }
-}
-
-function closeActiveBook() {
-  selectBook(null);
-}
-document.getElementById('detail-close').addEventListener('click', closeActiveBook);
-document.getElementById('wash').addEventListener('click', closeActiveBook);
-document.getElementById('mbar-inspect').addEventListener('click', () => {
-  detailPanel.classList.toggle('on');
-});
-
-// Build Bottom Timeline Rail
-const tlContainer = document.getElementById('tl');
-SERVICES.forEach((s, idx) => {
-  const btn = document.createElement('button');
-  btn.className = 'tli';
-  btn.innerHTML = `
-    <div class="tl-num">${s.vol}</div>
-    <div class="tltxt">
-      <p>${s.cat}</p>
-      <h3>${s.title}</h3>
-    </div>
-  `;
-  btn.addEventListener('click', () => {
-    selectBook(bookMeshes[idx]);
+  // Build real HTML 2D fallback & SEO/screen-reader directory immediately
+  const fallbackSection = document.getElementById("fallback-section");
+  const fallbackGrid = document.getElementById("fallback-grid");
+  SERVICES.forEach((s) => {
+    const card = document.createElement("article");
+    card.className = "fb-card";
+    card.innerHTML =
+      '<div class="fb-meta">VOL ' + s.vol + " · " + s.cat + "</div>" +
+      "<h2>" + s.title + "</h2>" +
+      "<p>" + s.blurb + "</p>" +
+      '<div class="fb-tat"><strong>Turnaround:</strong> ' + s.tat + " · <strong>Portal:</strong> " + s.portal + "</div>" +
+      '<div class="fb-acts">' +
+        '<a class="btn-wa" href="' + makeWaHref(s.title, s.cat) + '" target="_blank" rel="noopener noreferrer">WhatsApp</a>' +
+        '<a class="btn-call" href="tel:' + P1_TEL + '">Call ' + P1_DISP + "</a>" +
+      "</div>";
+    fallbackGrid.appendChild(card);
   });
-  tlContainer.appendChild(btn);
-});
 
-// Raycasting & Pointer Events
-function onPointerMove(e) {
-  mouse.x = (e.clientX / window.innerWidth) * 2 - 1;
-  mouse.y = -(e.clientY / window.innerHeight) * 2 + 1;
+  function activate2DFallback(reason) {
+    const loader = document.getElementById("loader");
+    if (loader) loader.classList.add("gone");
+    const stage = document.getElementById("stage");
+    if (stage) stage.style.display = "none";
+    const mbar = document.getElementById("mbar");
+    if (mbar) mbar.style.display = "none";
+    if (fallbackSection) fallbackSection.classList.remove("sr-only");
+    if (reason) console.info("3D Shelf fallback active:", reason);
+  }
 
-  hint.style.left = e.clientX + 'px';
-  hint.style.top = e.clientY + 'px';
+  // Copy for touch vs pointer
+  const isTouchEnv = window.matchMedia("(hover: none), (pointer: coarse)").matches;
+  const instrTxt = document.getElementById("shelf-instr-txt");
+  if (instrTxt && isTouchEnv) {
+    instrTxt.textContent = "Tap a volume to view details, or swipe sideways across the shelf";
+  }
 
-  raycaster.setFromCamera(mouse, camera);
-  const intersects = raycaster.intersectObjects(bookMeshes);
+  // Check WebGL support & 8s loader timeout
+  let shelfReady = false;
+  const loadTimer = setTimeout(() => {
+    if (!shelfReady) activate2DFallback("timeout");
+  }, 8000);
 
-  if (intersects.length > 0) {
-    const hitBook = intersects[0].object;
-    if (hitBook !== activeBook) {
-      if (hoveredBook && hoveredBook !== hitBook && !hoveredBook.userData.isActive) {
-        hoveredBook.userData.targetPos.copy(hoveredBook.userData.restingPos);
-        hoveredBook.userData.isHovered = false;
+  function hasWebGL(canvasEl) {
+    try {
+      return !!(window.WebGLRenderingContext && (canvasEl.getContext("webgl") || canvasEl.getContext("experimental-webgl")));
+    } catch (_) {
+      return false;
+    }
+  }
+
+  const canvas = document.getElementById("gl");
+
+  function init3DShelf() {
+    if (typeof window.THREE === "undefined" || !hasWebGL(canvas)) {
+      clearTimeout(loadTimer);
+      activate2DFallback("webgl-unavailable");
+      return;
+    }
+
+    const THREE = window.THREE;
+    const isMobileWidth = () => window.innerWidth < 768;
+    const isLowEnd = (navigator.deviceMemory && navigator.deviceMemory <= 4) || isMobileWidth();
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(26, 1, 0.1, 100);
+    let renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: !isLowEnd, alpha: true, powerPreference: "high-performance" });
+    } catch (err) {
+      clearTimeout(loadTimer);
+      activate2DFallback("renderer-init-error");
+      return;
+    }
+
+    const maxDpr = isLowEnd ? 1.5 : 2;
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, maxDpr));
+    renderer.shadowMap.enabled = !isMobileWidth() && !isLowEnd;
+    if (renderer.shadowMap.enabled) renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+    canvas.addEventListener("webglcontextlost", (e) => {
+      e.preventDefault();
+      running = false;
+      activate2DFallback("webglcontextlost");
+    });
+
+    // Lighting
+    scene.add(new THREE.AmbientLight(0xffffff, 0.78));
+    const dirLight = new THREE.DirectionalLight(0xfff3d6, 1.15);
+    dirLight.position.set(5, 8, 8);
+    if (renderer.shadowMap.enabled) {
+      dirLight.castShadow = true;
+      dirLight.shadow.mapSize.width = 512;
+      dirLight.shadow.mapSize.height = 512;
+    }
+    scene.add(dirLight);
+    const rimLight = new THREE.DirectionalLight(0x7090c0, 0.55);
+    rimLight.position.set(-6, -2, -3);
+    scene.add(rimLight);
+
+    const SHELF_CONFIG = {
+      topY: [0.95, -0.65],
+      shelfWidth: 7.2,
+      shelfHeight: 0.12,
+      shelfDepth: 1.4,
+      bookW: 0.88,
+      bookH: 1.32,
+      bookD: 0.18,
+      slotSpacing: 1.32
+    };
+
+    const shelfGroup = new THREE.Group();
+    scene.add(shelfGroup);
+
+    const texScale = isLowEnd ? 0.5 : 1;
+
+    function makeSpineTexture(s) {
+      const w = Math.round(128 * texScale);
+      const h = Math.round(1024 * texScale);
+      const c = document.createElement("canvas");
+      c.width = w; c.height = h;
+      const ctx = c.getContext("2d");
+      ctx.scale(texScale, texScale);
+      const grad = ctx.createLinearGradient(0, 0, 128, 0);
+      grad.addColorStop(0, "#0a0d13");
+      grad.addColorStop(0.25, s.spineColor);
+      grad.addColorStop(0.7, s.spineColor);
+      grad.addColorStop(1, "#05070a");
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 128, 1024);
+      ctx.fillStyle = s.goldTint;
+      ctx.fillRect(10, 62, 108, 8);
+      ctx.fillRect(10, 938, 108, 8);
+      ctx.textAlign = "center";
+      ctx.font = "bold 26px Cinzel, serif";
+      ctx.fillText("VOL " + s.vol, 64, 150);
+      ctx.save();
+      ctx.translate(64, 550);
+      ctx.rotate(-Math.PI / 2);
+      ctx.font = '600 34px "EB Garamond", Georgia, serif';
+      ctx.fillStyle = "#fff9e8";
+      ctx.fillText(s.title.toUpperCase(), 0, 10);
+      ctx.restore();
+      return new THREE.CanvasTexture(c);
+    }
+
+    function makeCoverTexture(s) {
+      const w = Math.round(512 * texScale);
+      const h = Math.round(768 * texScale);
+      const c = document.createElement("canvas");
+      c.width = w; c.height = h;
+      const ctx = c.getContext("2d");
+      ctx.scale(w / 512, h / 768);
+      ctx.fillStyle = s.clothColor;
+      ctx.fillRect(0, 0, 512, 768);
+      ctx.strokeStyle = s.goldTint;
+      ctx.lineWidth = 4;
+      ctx.strokeRect(24, 24, 464, 720);
+      ctx.fillStyle = s.goldTint;
+      ctx.textAlign = "center";
+      ctx.font = "bold 20px Cinzel, serif";
+      ctx.fillText("VOLUME " + s.vol + " · " + s.cat.toUpperCase(), 256, 120);
+      ctx.fillStyle = "#fff9e8";
+      ctx.font = '600 36px "EB Garamond", Georgia, serif';
+      const words = s.title.split(" ");
+      let line = "", y = 310;
+      words.forEach((word) => {
+        const test = line ? line + " " + word : word;
+        if (ctx.measureText(test).width > 390) {
+          ctx.fillText(line, 256, y);
+          line = word;
+          y += 46;
+        } else {
+          line = test;
+        }
+      });
+      if (line) ctx.fillText(line, 256, y);
+      ctx.fillStyle = s.goldTint;
+      ctx.font = "600 15px Inter, sans-serif";
+      ctx.fillText(P1_DISP, 256, 680);
+      return new THREE.CanvasTexture(c);
+    }
+
+    const shelfMat = new THREE.MeshStandardMaterial({ color: 0x1f1710, roughness: 0.65, metalness: 0.1 });
+    const brassMat = new THREE.MeshStandardMaterial({ color: 0xd4af37, roughness: 0.3, metalness: 0.8 });
+
+    SHELF_CONFIG.topY.forEach((y) => {
+      const plank = new THREE.Mesh(
+        new THREE.BoxGeometry(SHELF_CONFIG.shelfWidth, SHELF_CONFIG.shelfHeight, SHELF_CONFIG.shelfDepth),
+        shelfMat
+      );
+      plank.position.set(0, y - SHELF_CONFIG.shelfHeight / 2, 0);
+      plank.receiveShadow = renderer.shadowMap.enabled;
+      shelfGroup.add(plank);
+
+      const brass = new THREE.Mesh(new THREE.BoxGeometry(SHELF_CONFIG.shelfWidth, 0.02, 0.02), brassMat);
+      brass.position.set(0, y - 0.01, SHELF_CONFIG.shelfDepth / 2 + 0.005);
+      shelfGroup.add(brass);
+    });
+
+    const pageMat = new THREE.MeshStandardMaterial({ color: 0xe8dec7, roughness: 0.9 });
+    const bookMeshes = [];
+
+    SERVICES.forEach((service, index) => {
+      const materials = [
+        pageMat,
+        new THREE.MeshStandardMaterial({ map: makeSpineTexture(service), roughness: 0.5 }),
+        pageMat,
+        pageMat,
+        new THREE.MeshStandardMaterial({ map: makeCoverTexture(service), roughness: 0.4 }),
+        new THREE.MeshStandardMaterial({ color: service.clothColor, roughness: 0.7 })
+      ];
+      const book = new THREE.Mesh(
+        new THREE.BoxGeometry(SHELF_CONFIG.bookW, SHELF_CONFIG.bookH, SHELF_CONFIG.bookD),
+        materials
+      );
+      book.castShadow = renderer.shadowMap.enabled;
+      book.receiveShadow = renderer.shadowMap.enabled;
+
+      const shelfY = SHELF_CONFIG.topY[service.shelf];
+      const slotX = (service.slot - 2) * SHELF_CONFIG.slotSpacing;
+      const restingY = shelfY + SHELF_CONFIG.bookH / 2;
+      const restingZ = 0.2;
+
+      book.position.set(slotX, restingY, restingZ);
+      book.rotation.set(0, 0.22, -0.02);
+      book.userData = {
+        service: service,
+        index: index,
+        restingPos: new THREE.Vector3(slotX, restingY, restingZ),
+        restingRot: new THREE.Euler(0, 0.22, -0.02),
+        targetPos: new THREE.Vector3(slotX, restingY, restingZ),
+        targetRot: new THREE.Euler(0, 0.22, -0.02),
+        isActive: false
+      };
+      shelfGroup.add(book);
+      bookMeshes.push(book);
+    });
+
+    // State & UI refs
+    let activeBook = null;
+    let hoveredBook = null;
+    let currentFocusIdx = 0;
+    let shelfPanX = 0;
+    let targetPanX = 0;
+    let targetCamX = 0, targetCamY = 0;
+    const pointerNDC = new THREE.Vector2(-100, -100);
+    const raycaster = new THREE.Raycaster();
+
+    const detailPanel = document.getElementById("detail");
+    const wash = document.getElementById("wash");
+    const hint = document.getElementById("hint");
+    const hintTxt = document.getElementById("hint-txt");
+    const instr = document.getElementById("shelf-instr");
+
+    function updateCameraAndLayout() {
+      const stage = document.getElementById("stage");
+      const w = stage.clientWidth || window.innerWidth;
+      const h = stage.clientHeight || window.innerHeight;
+      const aspect = w / Math.max(h, 1);
+
+      camera.aspect = aspect;
+      if (aspect < 0.75) {
+        // Portrait phone: frame ~3 volumes cleanly, user swipes/arrows for rest
+        camera.fov = 34;
+        camera.position.z = 7.2;
+      } else if (aspect < 1.1) {
+        camera.fov = 28;
+        camera.position.z = 8.4;
+      } else {
+        camera.fov = 24;
+        camera.position.z = 7.8;
       }
-      hoveredBook = hitBook;
-      hoveredBook.userData.isHovered = true;
-      // Slight lift out forward
-      hoveredBook.userData.targetPos.z = hoveredBook.userData.restingPos.z + 0.35;
-      hintTxt.textContent = 'Examine ' + hitBook.userData.service.title;
-      hint.classList.add('on');
-      document.body.style.cursor = 'pointer';
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h, false);
     }
-  } else {
-    if (hoveredBook && !hoveredBook.userData.isActive) {
-      hoveredBook.userData.targetPos.copy(hoveredBook.userData.restingPos);
-      hoveredBook.userData.isHovered = false;
-      hoveredBook = null;
+
+    function panToSlot(slot) {
+      if (isMobileWidth()) {
+        targetPanX = Math.max(-2.2, Math.min(2.2, -(slot - 2) * 1.1));
+      } else {
+        targetPanX = 0;
+      }
     }
-    hint.classList.remove('on');
-    document.body.style.cursor = 'default';
+
+    function selectBook(book, pushHist) {
+      if (activeBook === book) return;
+      if (activeBook) {
+        activeBook.userData.isActive = false;
+        activeBook.userData.targetPos.copy(activeBook.userData.restingPos);
+        activeBook.userData.targetRot.copy(activeBook.userData.restingRot);
+      }
+      activeBook = book;
+
+      if (activeBook) {
+        activeBook.userData.isActive = true;
+        currentFocusIdx = activeBook.userData.index;
+        const s = activeBook.userData.service;
+        panToSlot(s.slot);
+
+        const mobile = isMobileWidth();
+        activeBook.userData.targetPos.set(mobile ? -targetPanX : 0.95, mobile ? 0.35 : 0.05, mobile ? 3.8 : 4.4);
+        activeBook.userData.targetRot.set(0.06, 0.28, 0);
+
+        document.getElementById("detail-vol").textContent = "VOL " + s.vol;
+        document.getElementById("detail-cat").textContent = s.cat;
+        document.getElementById("detail-title").textContent = s.title;
+        document.getElementById("detail-sub").textContent = s.sub;
+        document.getElementById("detail-desc").textContent = s.blurb;
+        document.getElementById("detail-tat").textContent = s.tat;
+        document.getElementById("detail-portal").textContent = s.portal;
+
+        const feats = document.getElementById("detail-feats");
+        feats.innerHTML = "";
+        s.features.forEach((f) => {
+          const li = document.createElement("li");
+          li.innerHTML = '<svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span>' + f + "</span>";
+          feats.appendChild(li);
+        });
+
+        const waHref = makeWaHref(s.title, s.cat);
+        document.getElementById("detail-wa").href = waHref;
+        document.getElementById("mbar-wa").href = waHref;
+        document.getElementById("mbar-vol").textContent = "VOLUME " + s.vol;
+        document.getElementById("mbar-title").textContent = s.title;
+
+        detailPanel.classList.add("on");
+        wash.classList.add("on");
+        instr.classList.add("hidden");
+
+        document.querySelectorAll(".tli").forEach((el, idx) => {
+          el.classList.toggle("active", idx === currentFocusIdx);
+        });
+
+        if (pushHist && mobile) {
+          try { history.pushState({ sheetOpen: true }, ""); } catch (_) {}
+        }
+      } else {
+        detailPanel.classList.remove("on");
+        wash.classList.remove("on");
+        instr.classList.remove("hidden");
+        document.querySelectorAll(".tli").forEach((el) => el.classList.remove("active"));
+      }
+    }
+
+    function closeActiveBook() {
+      selectBook(null, false);
+    }
+
+    document.getElementById("detail-close").addEventListener("click", closeActiveBook);
+    document.getElementById("detail-close-x").addEventListener("click", closeActiveBook);
+    wash.addEventListener("click", closeActiveBook);
+    window.addEventListener("popstate", () => {
+      if (detailPanel.classList.contains("on")) closeActiveBook();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && activeBook) closeActiveBook();
+    });
+    document.getElementById("mbar-inspect").addEventListener("click", () => {
+      if (!activeBook) selectBook(bookMeshes[currentFocusIdx], true);
+      else detailPanel.classList.toggle("on"), wash.classList.toggle("on", detailPanel.classList.contains("on"));
+    });
+
+    // Prev / Next arrow buttons
+    document.getElementById("prevVolBtn").addEventListener("click", () => {
+      currentFocusIdx = (currentFocusIdx - 1 + bookMeshes.length) % bookMeshes.length;
+      if (activeBook) selectBook(bookMeshes[currentFocusIdx], false);
+      else panToSlot(SERVICES[currentFocusIdx].slot);
+      document.getElementById("mbar-vol").textContent = "VOLUME " + SERVICES[currentFocusIdx].vol;
+      document.getElementById("mbar-title").textContent = SERVICES[currentFocusIdx].title;
+    });
+    document.getElementById("nextVolBtn").addEventListener("click", () => {
+      currentFocusIdx = (currentFocusIdx + 1) % bookMeshes.length;
+      if (activeBook) selectBook(bookMeshes[currentFocusIdx], false);
+      else panToSlot(SERVICES[currentFocusIdx].slot);
+      document.getElementById("mbar-vol").textContent = "VOLUME " + SERVICES[currentFocusIdx].vol;
+      document.getElementById("mbar-title").textContent = SERVICES[currentFocusIdx].title;
+    });
+
+    // Bottom rail
+    const tl = document.getElementById("tl");
+    SERVICES.forEach((s, idx) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "tli";
+      btn.innerHTML = '<div class="tl-num">' + s.vol + '</div><div class="tltxt"><p>' + s.cat + "</p><h3>" + s.title + "</h3></div>";
+      btn.addEventListener("click", () => selectBook(bookMeshes[idx], true));
+      tl.appendChild(btn);
+    });
+
+    // Pointer Events: tap vs horizontal drag + hover only on fine pointer
+    const fineHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    let downState = null;
+
+    function updateNDC(e) {
+      const rect = canvas.getBoundingClientRect();
+      pointerNDC.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      pointerNDC.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+    }
+
+    canvas.addEventListener("pointerdown", (e) => {
+      downState = { x: e.clientX, y: e.clientY, t: performance.now(), startPan: targetPanX };
+      updateNDC(e);
+    });
+
+    canvas.addEventListener("pointermove", (e) => {
+      if (downState) {
+        const dx = e.clientX - downState.x;
+        const dy = e.clientY - downState.y;
+        if (Math.abs(dx) > 8 && Math.abs(dx) > Math.abs(dy)) {
+          targetPanX = Math.max(-2.6, Math.min(2.6, downState.startPan + dx * 0.008));
+        }
+        return;
+      }
+
+      if (!fineHover) return;
+      updateNDC(e);
+      hint.style.left = e.clientX + "px";
+      hint.style.top = e.clientY + "px";
+      targetCamX = ((e.clientX / window.innerWidth) - 0.5) * 0.35;
+      targetCamY = -((e.clientY / window.innerHeight) - 0.5) * 0.2;
+
+      raycaster.setFromCamera(pointerNDC, camera);
+      const hits = raycaster.intersectObjects(bookMeshes);
+      if (hits.length > 0) {
+        const hitBook = hits[0].object;
+        if (hitBook !== activeBook) {
+          if (hoveredBook && hoveredBook !== hitBook && !hoveredBook.userData.isActive) {
+            hoveredBook.userData.targetPos.copy(hoveredBook.userData.restingPos);
+          }
+          hoveredBook = hitBook;
+          hoveredBook.userData.targetPos.z = hoveredBook.userData.restingPos.z + 0.35;
+          hintTxt.textContent = "Inspect " + hitBook.userData.service.title;
+          hint.classList.add("on");
+          canvas.style.cursor = "pointer";
+        }
+      } else {
+        if (hoveredBook && !hoveredBook.userData.isActive) {
+          hoveredBook.userData.targetPos.copy(hoveredBook.userData.restingPos);
+          hoveredBook = null;
+        }
+        hint.classList.remove("on");
+        canvas.style.cursor = "default";
+      }
+    });
+
+    canvas.addEventListener("pointerup", (e) => {
+      if (!downState) return;
+      const dist = Math.hypot(e.clientX - downState.x, e.clientY - downState.y);
+      const elapsed = performance.now() - downState.t;
+      downState = null;
+
+      // Tap threshold: < 8px movement and < 350ms
+      if (dist < 8 && elapsed < 350) {
+        updateNDC(e);
+        raycaster.setFromCamera(pointerNDC, camera);
+        const hits = raycaster.intersectObjects(bookMeshes);
+        if (hits.length > 0) {
+          selectBook(hits[0].object, true);
+        } else if (activeBook) {
+          closeActiveBook();
+        }
+      }
+    });
+
+    canvas.addEventListener("pointercancel", () => { downState = null; });
+
+    window.addEventListener("resize", updateCameraAndLayout);
+    window.addEventListener("orientationchange", () => setTimeout(updateCameraAndLayout, 150));
+    updateCameraAndLayout();
+
+    // Pause render loop when tab hidden or off-screen
+    let running = true;
+    let rafId = 0;
+    let isVisibleInViewport = true;
+
+    function syncLoop() {
+      const shouldRun = !document.hidden && isVisibleInViewport;
+      if (shouldRun && !running) {
+        running = true;
+        rafId = requestAnimationFrame(animate);
+      } else if (!shouldRun && running) {
+        running = false;
+        cancelAnimationFrame(rafId);
+      }
+    }
+
+    document.addEventListener("visibilitychange", syncLoop);
+    if ("IntersectionObserver" in window) {
+      const obs = new IntersectionObserver((entries) => {
+        isVisibleInViewport = entries[0] ? entries[0].isIntersecting : true;
+        syncLoop();
+      }, { threshold: 0.05 });
+      obs.observe(document.getElementById("stage"));
+    }
+
+    function animate() {
+      if (!running) return;
+      rafId = requestAnimationFrame(animate);
+
+      const lerpFactor = prefersReducedMotion ? 1 : 0.1;
+      shelfPanX += (targetPanX - shelfPanX) * lerpFactor;
+      shelfGroup.position.x = shelfPanX;
+
+      if (!prefersReducedMotion) {
+        camera.position.x += (targetCamX - camera.position.x) * 0.05;
+        camera.position.y += (targetCamY - camera.position.y) * 0.05;
+      }
+      camera.lookAt(0, 0, 0);
+
+      bookMeshes.forEach((b) => {
+        const u = b.userData;
+        const speed = prefersReducedMotion ? 1 : (u.isActive ? 0.1 : 0.12);
+        b.position.lerp(u.targetPos, speed);
+        b.rotation.x += (u.targetRot.x - b.rotation.x) * speed;
+        b.rotation.y += (u.targetRot.y - b.rotation.y) * speed;
+        b.rotation.z += (u.targetRot.z - b.rotation.z) * speed;
+      });
+
+      renderer.render(scene, camera);
+    }
+
+    shelfReady = true;
+    clearTimeout(loadTimer);
+    document.getElementById("barfill").style.transform = "scaleX(1)";
+    document.getElementById("loader").classList.add("gone");
+    canvas.classList.add("on");
+    rafId = requestAnimationFrame(animate);
   }
-}
 
-function onPointerDown(e) {
-  // If clicking outside detail panel and clicked book
-  if (e.target.closest('#detail') || e.target.closest('header') || e.target.closest('footer') || e.target.closest('#mbar')) {
-    return;
-  }
-
-  raycaster.setFromCamera(mouse, camera);
-  const intersects = raycaster.intersectObjects(bookMeshes);
-  if (intersects.length > 0) {
-    selectBook(intersects[0].object);
-  } else {
-    // Clicked empty space
-    if (activeBook) closeActiveBook();
-  }
-}
-
-window.addEventListener('pointermove', onPointerMove);
-window.addEventListener('pointerdown', onPointerDown);
-
-// Responsive Resizing
-window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
-  camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
-
-  if (window.innerWidth < 768) {
-    document.body.classList.add('mobile');
-    camera.position.z = 9.2;
-  } else {
-    document.body.classList.remove('mobile');
-    camera.position.z = 7.8;
-  }
-});
-if (window.innerWidth < 768) {
-  document.body.classList.add('mobile');
-  camera.position.z = 9.2;
-}
-
-// Subtle subtle camera parallax based on mouse
-let targetCamX = 0, targetCamY = 0;
-window.addEventListener('mousemove', (e) => {
-  targetCamX = ((e.clientX / window.innerWidth) - 0.5) * 0.4;
-  targetCamY = -((e.clientY / window.innerHeight) - 0.5) * 0.25;
-});
-
-/* ════════════════════════════════════════════════════════════════════════
-   5 · ANIMATION LOOP
-   ════════════════════════════════════════════════════════════════════════ */
-const clock = new THREE.Clock();
-
-function animate() {
-  requestAnimationFrame(animate);
-  const delta = clock.getDelta();
-
-  // Smooth camera parallax
-  camera.position.x += (targetCamX - camera.position.x) * 0.05;
-  camera.position.y += (targetCamY - camera.position.y) * 0.05;
-  camera.lookAt(0, 0, 0);
-
-  // Smooth book movements (Lerp position and rotation)
-  bookMeshes.forEach(b => {
-    const u = b.userData;
-    const speed = u.isActive ? 0.09 : 0.12;
-
-    b.position.lerp(u.targetPos, speed);
-
-    b.rotation.x += (u.targetRot.x - b.rotation.x) * speed;
-    b.rotation.y += (u.targetRot.y - b.rotation.y) * speed;
-    b.rotation.z += (u.targetRot.z - b.rotation.z) * speed;
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof window.THREE !== "undefined") init3DShelf();
+    else window.addEventListener("load", init3DShelf);
   });
-
-  renderer.render(scene, camera);
-}
-
-// Initialization and Loader fadeout
-window.addEventListener('load', () => {
-  const bar = document.getElementById('barfill');
-  bar.style.transform = 'scaleX(1)';
-
-  setTimeout(() => {
-    document.getElementById('loader').classList.add('gone');
-    canvas.classList.add('on');
-    document.querySelector('footer').classList.add('on');
-    animate();
-
-    // Default select Volume I for user introduction
-    setTimeout(() => {
-      selectBook(bookMeshes[0]);
-    }, 700);
-  }, 400);
-});
+})();
 </script>
 </body>
 </html>
